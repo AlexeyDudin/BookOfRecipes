@@ -1,5 +1,6 @@
-﻿using Domain;
+﻿using Domain.Models.Users;
 using Infrastructure;
+using Infrastructure.Models.AuthOptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -45,25 +46,6 @@ namespace WebAPI.Controllers
 
             return Json(response);
         }
-
-        //private ClaimsIdentity GetIdentity(string username, string password)
-        //{
-        //    User person = userList.FirstOrDefault(x => x.Login == username && x.Password == password);
-        //    if (person != null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimsIdentity.DefaultNameClaimType, person.Login)
-        //        };
-        //        ClaimsIdentity claimsIdentity =
-        //        new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-        //            ClaimsIdentity.DefaultRoleClaimType);
-        //        return claimsIdentity;
-        //    }
-
-        //    // если пользователя не найдено
-        //    return null;
-        //}
 
         private ClaimsIdentity GetIdentity(string username, string password)
         {

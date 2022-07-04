@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Domain;
+using Domain.Models.Users;
 using Infrastructure;
 
 UserContext userContext = new UserContext();

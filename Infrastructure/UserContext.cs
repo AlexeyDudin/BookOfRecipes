@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain;
+﻿using Domain.Models.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
@@ -15,6 +10,16 @@ namespace Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=EVGENYA-PC;Initial Catalog=BooksOfRecipe;Integrated Security=True");
+        }
+
+        public User? GetUserBy(string login, string passwd)
+        {
+            foreach (User user in this.Users)
+            {
+                if (user.Login == login && user.Password == passwd)
+                    return user;
+            }
+            return null;
         }
     }
 }
