@@ -1,13 +1,16 @@
-﻿namespace Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain
 {
     public class User
     {
         private int id;
         private string _userName;
-        private string _login;
+        private string _login = "";
         private string _password;
-        private string _about;
+        private string _about = "";
 
+        [Key]
         public int Id { get => id; set => id = value; }
         public string UserName { get => _userName; set => _userName = value; }
         public string Login { get => _login; set => _login = value; }
