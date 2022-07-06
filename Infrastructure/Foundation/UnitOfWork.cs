@@ -1,24 +1,23 @@
 ﻿using Domain.Foundation;
-using Domain.Repositories;
-using Infrastructure.Repositories;
+using Domain.Models.Users;
 
 namespace Infrastructure.Foundation
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private TLRecipesDbContext _dbContext;
-        private IUserRepository _userRepository;
+        private IRepository<User> _userRepository;
 
-        public IUserRepository UserRepository { get { return _userRepository; } }
+        public IRepository<User> UserRepository { get { return _userRepository; } }
 
         public UnitOfWork( TLRecipesDbContext dbContext )
         {
-            _userRepository = new UserRepository( dbContext );
+            _userRepository = new Repository<User>( dbContext );
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _dbContext.Dispose();
         }
 
         public void Commit()

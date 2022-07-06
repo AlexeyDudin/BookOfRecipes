@@ -1,11 +1,11 @@
-﻿using Domain.Repositories;
+﻿using Domain.Models.Users;
 
 namespace Domain.Foundation
 {
     public interface IUnitOfWork
     {
-        IUserRepository UserRepository { get; }
+        public IRepository<User> UserRepository { get; }
 
-        void Commit();
+        public void Commit();
     }
 }
