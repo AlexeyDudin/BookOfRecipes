@@ -1,9 +1,10 @@
 ﻿using WebAPI.Dto;
+using WebAPI.Dto.Response;
 
 namespace WebAPI.Services
 {
     public interface IUserApiService
     {
-        void CreateUser(UserDto user);
+        Result CreateUser(UserDto user);
     }
 }
