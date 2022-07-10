@@ -14,6 +14,15 @@ namespace Application.Users
             _userRepository = unitOfWork.UserRepository;
         }
 
+        public void ChangePassword(string login, string password)
+        {
+            User user = _userRepository.FirstOrDefault(user => user.Login == login);
+            User changedUser = UserFunctions.Clone(user);
+            changedUser.Password = password;
+            _userRepository.Change(user, changedUser);
+            _unitOfWork.Commit();
+        }
+
         public User CreateUser(string login, string password)
         {
             User user = new User
@@ -25,6 +34,27 @@ namespace Application.Users
             _userRepository.Add(user);
             _unitOfWork.Commit();
             return user;
+        }
+
+        public User GetUserInfo(string login, string password)
+        {
+            return _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
+        }
+
+        public IRepository<User> GetUsers()
+        {
+            return _userRepository;
+        }
+
+        public User SetUserInfo(string login, string password, string newUserName, string newDescription)
+        {
+            User changedUser = _userRepository.FirstOrDefault(changedUser => changedUser.Login == login && changedUser.Password == password);
+            User newUserInfo = UserFunctions.Clone(changedUser);
+            newUserInfo.Description = newDescription;
+            newUserInfo.UserName = newUserName;
+            _userRepository.Change(changedUser, newUserInfo);
+            _unitOfWork.Commit();
+            return newUserInfo;
         }
     }
 }
