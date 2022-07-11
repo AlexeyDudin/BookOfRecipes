@@ -1,7 +1,7 @@
 ﻿using WebAPI.Dto;
 using WebAPI.Dto.Response;
 
-namespace WebAPI.Services
+namespace WebAPI.Services.User
 {
     public interface IUserApiService
     {

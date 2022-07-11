@@ -3,7 +3,7 @@ using System.Text.Json;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
 
-namespace WebAPI.Services
+namespace WebAPI.Services.User
 {
     public class UserApiService : IUserApiService
     {

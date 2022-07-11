@@ -1,7 +1,7 @@
 using Application.Users;
 using Domain.Foundation;
 using Infrastructure.Foundation;
-using WebAPI.Services;
+using WebAPI.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
 

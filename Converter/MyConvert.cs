@@ -3,7 +3,7 @@ using WebAPI.Dto;
 
 namespace Converter
 {
-    public class MyConvert : Convert
+    public class MyConvert
     {
         public static User UserDtoToUser(UserDto userDto)
         {

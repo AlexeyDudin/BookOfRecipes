@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
-using WebAPI.Services;
+using WebAPI.Services.User;
 
 namespace WebAPI.Controllers
 {
