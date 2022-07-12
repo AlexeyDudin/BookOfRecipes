@@ -13,6 +13,7 @@ namespace Infrastructure.Foundation
         public UnitOfWork( TLRecipesDbContext dbContext )
         {
             _userRepository = new Repository<User>( dbContext );
+            _dbContext = dbContext;
         }
 
         public void Dispose()

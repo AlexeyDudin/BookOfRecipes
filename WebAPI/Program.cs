@@ -1,6 +1,7 @@
 using Application.Users;
 using Domain.Foundation;
 using Infrastructure.Foundation;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddDbContext<TLRecipesDbContext>( c => c.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 
 var app = builder.Build();
 

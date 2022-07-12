@@ -17,9 +17,11 @@ namespace Application.Users
         public void ChangePassword(string login, string password)
         {
             User user = _userRepository.FirstOrDefault(user => user.Login == login);
-            User changedUser = UserFunctions.Clone(user);
-            changedUser.Password = password;
-            _userRepository.Change(user, changedUser);
+            user.Password = password;
+            //User changedUser = UserFunctions.Clone(user);
+            //changedUser.Password = password;
+            //_userRepository.Change(user, changedUser);
+            //TODO
             _unitOfWork.Commit();
         }
 
@@ -41,20 +43,22 @@ namespace Application.Users
             return _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
         }
 
-        public IRepository<User> GetUsers()
+        public List<User> GetUsers()
         {
-            return _userRepository;
+            return new List<User> { _userRepository.First() };
         }
 
         public User SetUserInfo(string login, string password, string newUserName, string newDescription)
         {
             User changedUser = _userRepository.FirstOrDefault(changedUser => changedUser.Login == login && changedUser.Password == password);
-            User newUserInfo = UserFunctions.Clone(changedUser);
-            newUserInfo.Description = newDescription;
-            newUserInfo.UserName = newUserName;
-            _userRepository.Change(changedUser, newUserInfo);
+            changedUser.UserName = newUserName;
+            changedUser.Description = newDescription;
+            //User newUserInfo = UserFunctions.Clone(changedUser);
+            //newUserInfo.Description = newDescription;
+            //newUserInfo.UserName = newUserName;
+            //_userRepository.Change(changedUser, newUserInfo);
             _unitOfWork.Commit();
-            return newUserInfo;
+            return changedUser;
         }
     }
 }

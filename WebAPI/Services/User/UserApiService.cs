@@ -1,5 +1,6 @@
 ﻿using Application.Users;
 using System.Text.Json;
+using WebAPI.Converters;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
 
@@ -17,15 +18,16 @@ namespace WebAPI.Services.User
 
         public Result CreateUser(UserDto user)
         {
+            UserDto addedUser = default;
             try
             {
-                _userService.CreateUser(user.Login, user.Password);
+                addedUser = UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password));
             }
             catch (Exception ex)
             {
                 return new Result(ex.Message, ResponseStatus.Error);
             }
-            return new Result("User added", ResponseStatus.Ok);
+            return new Result(JsonSerializer.Serialize(addedUser), ResponseStatus.Ok);
         }
 
         public Result GetUserInfo(UserDto user)
@@ -67,5 +69,16 @@ namespace WebAPI.Services.User
             return new Result("User info saved", ResponseStatus.Ok);
         }
 
+        public Result GetAllUsers()
+        {
+            try
+            {
+                return new Result(JsonSerializer.Serialize(_userService.GetUsers()), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
+        }
     }
 }

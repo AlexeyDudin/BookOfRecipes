@@ -13,7 +13,7 @@ namespace Infrastructure.Foundation
                .AddJsonFile( "appsettings.json" );
 
             var config = builder.Build();
-            var connectionString = config.GetConnectionString( "Connection" );
+            var connectionString = config.GetConnectionString("DbConnection");
             var optionsBuilder = new DbContextOptionsBuilder<TLRecipesDbContext>();
             optionsBuilder.UseSqlServer( connectionString );
 
