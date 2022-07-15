@@ -10,5 +10,7 @@ namespace WebAPI.Services.Recipe
         Result GetRecipeOfUser(UserDto user);
         Result AddRecipe(RecipeDto recipe);
         Result ChangeRecipe(RecipeDto recipe);
+
+        Result GetRecipeByContainingName(string name);
     }
 }

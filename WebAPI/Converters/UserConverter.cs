@@ -5,7 +5,7 @@ namespace WebAPI.Converters
 {
     public static class UserConverter
     {
-        public static User ConverUserFromDto(UserDto user)
+        public static User ConverUserFromDto( this UserDto user)
         {
             return new User
             {
@@ -16,7 +16,7 @@ namespace WebAPI.Converters
             };
         }
 
-        public static UserDto ConvertUserToDto(User user)
+        public static UserDto ConvertUserToDto( this User user)
         {
             return new UserDto
             {

@@ -2,9 +2,9 @@
 
 namespace Domain.Foundation
 {
-    public interface IUnitOfWork
+    public interface IUserRepository
     {
-        public IRepository<User> UserRepository { get; }
+        public IRepository<User> Repository { get; }
 
         public void Commit();
     }

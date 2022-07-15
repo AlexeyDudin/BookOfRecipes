@@ -2,6 +2,7 @@
 using WebAPI.Dto.Recipes;
 using WebAPI.Dto.Response;
 using Application.Recipes;
+using WebAPI.Converters;
 
 namespace WebAPI.Services.Recipe
 {
@@ -16,22 +17,50 @@ namespace WebAPI.Services.Recipe
 
         public Result AddRecipe(RecipeDto recipe)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new Result(_recipeService.Add(RecipeConverter.ConvertRecipeFromDto(recipe)), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
         }
 
         public Result ChangeRecipe(RecipeDto recipe)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new Result(_recipeService.ChangeRecipe(recipe.ConvertRecipeFromDto()), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
         }
 
         public Result GetAllRecipes()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new Result(_recipeService.GetAllRecipes(), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
         }
 
         public Result GetRecipeOfUser(UserDto user)
         {
-            throw new NotImplementedException();
+            //TODO
+            throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
+        }
+
+        public Result GetRecipeByContainingName(string name)
+        {
+            //TODO
+            throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
         }
     }
 }

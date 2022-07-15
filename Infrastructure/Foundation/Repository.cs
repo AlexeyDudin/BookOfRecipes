@@ -1,11 +1,12 @@
 ﻿using Domain.Foundation;
 using Domain.Models.Users;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 using System.Linq.Expressions;
 
 namespace Infrastructure.Foundation
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class, IEnumerable
     {
         protected readonly DbContext DbContext;
         protected DbSet<T> Entities => DbContext.Set<T>();
@@ -34,6 +35,12 @@ namespace Infrastructure.Foundation
         {
             if (Entities.Contains(entity))
                 Entities.Remove(entity);
+        }
+
+        public List<T> GetAll()
+        {
+            var entities = Entities.ToList();
+            return entities;
         }
     }
 }

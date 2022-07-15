@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections;
+using System.Linq.Expressions;
 
 namespace Domain.Foundation
 {
@@ -10,5 +11,6 @@ namespace Domain.Foundation
 
         void Add(T entity);
         void Delete(T entity);
+        List<T> GetAll();
     }
 }

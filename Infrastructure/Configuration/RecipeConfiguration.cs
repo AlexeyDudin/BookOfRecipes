@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Models.Recipes;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Configuration
 {
-    public class RecipeConfiguration
+    public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
     {
+        public void Configure(EntityTypeBuilder<Recipe> builder)
+        {
+            builder.ToTable(nameof(Recipe));
+            builder.HasKey(rsf => rsf.Id);
+            builder.Property(rsf => rsf.Id).HasColumnName("RecipeId");
+
+        }
     }
 }
