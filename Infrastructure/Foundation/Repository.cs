@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Infrastructure.Foundation
 {
-    public class Repository<T> : IRepository<T> where T : class, IEnumerable
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly DbContext DbContext;
         protected DbSet<T> Entities => DbContext.Set<T>();
