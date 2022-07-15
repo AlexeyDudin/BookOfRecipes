@@ -15,25 +15,25 @@ namespace WebAPI.Controllers
             _recipeApiService = recipeApiService;
         }
 
-        [HttpPost, Route("/create")]
+        [HttpPost, Route("create")]
         public IActionResult AddRecipe([FromBody] RecipeDto recipeDto)
         {
             return GetResponse(_recipeApiService.AddRecipe(recipeDto));
         }
 
-        [HttpGet, Route("/{user}")]
+        [HttpGet, Route("{user}")]
         public IActionResult GetUserRecipes([FromBody] UserDto user)
         {
             return GetResponse(_recipeApiService.GetRecipeOfUser(user));
         }
 
-        [HttpGet, Route("")]
+        [HttpGet, Route("all")]
         public IActionResult GetAllRecipes()
         {
             return GetResponse(_recipeApiService.GetAllRecipes());
         }
 
-        [HttpPost, Route("/change")]
+        [HttpPost, Route("change")]
         public IActionResult ChangeRecipe([FromBody] RecipeDto recipeDto)
         {
             return GetResponse(_recipeApiService.ChangeRecipe(recipeDto));

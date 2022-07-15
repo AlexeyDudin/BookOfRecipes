@@ -11,7 +11,7 @@ namespace Infrastructure.Configuration
             builder.ToTable(nameof(Recipe));
             builder.HasKey(rsf => rsf.Id);
             builder.Property(rsf => rsf.Id).HasColumnName("RecipeId");
-
+            builder.Property(rsf => rsf.Owner).HasColumnName("UserId").
         }
     }
 }

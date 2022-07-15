@@ -45,7 +45,8 @@ namespace Application.Users
 
         public List<User> GetUsers()
         {
-            return new List<User> { _userRepository.First() };
+            List<User> userList = _userRepository.GetAll();
+            return userList;
         }
 
         public User SetUserInfo(string login, string password, string newUserName, string newDescription)

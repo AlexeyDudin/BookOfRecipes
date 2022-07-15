@@ -27,19 +27,19 @@ namespace WebAPI.Controllers
             return GetResponse(_userApiService.GetUserInfo(user));
         }
 
-        [HttpGet, Route("/all")]
+        [HttpGet, Route("all")]
         public IActionResult GetAllUser()
         {
             return GetResponse(_userApiService.GetAllUsers());
         }
 
-        [HttpPost, Route("/update")]
+        [HttpPost, Route("update")]
         public IActionResult SetUserInfo([FromBody] UserDto user)
         {
             return GetResponse(_userApiService.ChangeUserInfo(user));
         }
 
-        [HttpPost, Route("/password")]
+        [HttpPost, Route("password")]
         public IActionResult ChangeUserPassword([FromBody] UserDto user)
         {
             return GetResponse(_userApiService.ChangePassword(user, user.Password));
