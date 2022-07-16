@@ -8,9 +8,10 @@ namespace Domain.Models.Recipes
     public class Recipe
     {
         [Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         
+        [ForeignKey("OwnerId")]
         public User Owner { get; set; }
         public string ShortInfo { get; set; }
         public List<Tags> Tags { get; set; }
@@ -18,5 +19,7 @@ namespace Domain.Models.Recipes
         public int CountPersons { get; set; }
         public List<Ingridient> Ingridients { get; set; }
         public List<Step> Steps { get; set; }
+
+        public long OwnerId { get; set; }
     }
 }

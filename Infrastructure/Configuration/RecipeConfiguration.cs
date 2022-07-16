@@ -11,7 +11,11 @@ namespace Infrastructure.Configuration
             builder.ToTable(nameof(Recipe));
             builder.HasKey(rsf => rsf.Id);
             builder.Property(rsf => rsf.Id).HasColumnName("RecipeId");
-            builder.Property(rsf => rsf.Owner).HasColumnName("UserId").
+            builder
+                .HasOne(r => r.Owner)
+                .WithMany(u => u.Recipes)
+                .HasForeignKey(r => r.OwnerId);
+
         }
     }
 }

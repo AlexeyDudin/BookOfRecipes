@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.Models.Recipes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models.Users
 {
@@ -11,5 +12,7 @@ namespace Domain.Models.Users
         public string Login { get; set; }
         public string Password { get; set; }
         public string Description { get; set; }
+
+        public List<Recipe> Recipes { get; set; }
     }
 }
