@@ -41,7 +41,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Ingridient");
+                    b.ToTable("Ingridient", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Recipes.Product", b =>
@@ -63,7 +63,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("IngridientId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Recipes.Recipe", b =>
@@ -95,7 +95,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Recipe");
+                    b.ToTable("Recipe", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Recipes.Step", b =>
@@ -120,7 +120,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Step");
+                    b.ToTable("Step", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Recipes.Tags", b =>
@@ -142,7 +142,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Users.User", b =>

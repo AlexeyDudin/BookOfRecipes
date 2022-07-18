@@ -40,24 +40,25 @@ namespace WebAPI.Converters
 
     public static class TagConverter
     {
-        public static List<Tags> ConvertTagListFromDto(this List<TagsDto> tagsDtos)
+        public static List<RecipeTag> ConvertTagListFromDto(this List<TagsDto> tagsDtos)
         {
-            List<Tags> tags = new List<Tags>();
+            List<RecipeTag> tags = new List<RecipeTag>();
 
             foreach (TagsDto tagDto in tagsDtos)
             {
-                tags.Add(new Tags { Name = tagDto.Name });
+                tags.Add(new RecipeTag { Tag = new Tags { Name = tagDto.Name } });
+                //tags.Add(new RecipeTag { Name = tagDto.Name });
             }
             return tags;
         }
 
-        public static List<TagsDto> ConvertTagListToDto(this List<Tags> tags)
+        public static List<TagsDto> ConvertTagListToDto(this List<RecipeTag> tags)
         {
             List<TagsDto> result = new List<TagsDto>();
 
-            foreach (Tags tag in tags)
+            foreach (RecipeTag tag in tags)
             {
-                result.Add(new TagsDto { Name = tag.Name });
+                result.Add(new TagsDto { Name = tag.Tag.Name });
             }
             return result;
         }

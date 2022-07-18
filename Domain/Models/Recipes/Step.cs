@@ -2,7 +2,8 @@
 {
     public class Step
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
+        public long RecipeId { get; set; }
         public int Number { get; set; }
         public string Description { get; set; }
     }
