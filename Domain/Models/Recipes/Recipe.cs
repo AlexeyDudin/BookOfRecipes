@@ -13,13 +13,16 @@ namespace Domain.Models.Recipes
         
         [ForeignKey("OwnerId")]
         public User Owner { get; set; }
+
         public string ShortInfo { get; set; }
-        public List<RecipeTag> Tags { get; set; }
+
+        public List<RecipeTag> RecipeTags { get; set; }
         public int TimeRemaining { get; set; }
         public int CountPersons { get; set; }
         public List<Ingridient> Ingridients { get; set; }
         public List<Step> Steps { get; set; }
 
         public long OwnerId { get; set; }
+        //public Likes Likes { get; set; }
     }
 }

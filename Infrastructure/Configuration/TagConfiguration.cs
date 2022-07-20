@@ -8,7 +8,7 @@ namespace Infrastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<Tags> builder)
         {
-            builder.ToTable(nameof(Ingridient));
+            builder.ToTable(nameof(Tags));
             builder.HasKey(rsf => rsf.Id);
             builder.Property(rsf => rsf.Id).HasColumnName("TagId");
         }

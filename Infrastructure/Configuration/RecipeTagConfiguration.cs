@@ -8,9 +8,10 @@ namespace Infrastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<RecipeTag> builder)
         {
+
             builder
                 .HasOne(r => r.Recipe)
-                .WithMany(u => u.Tags)
+                .WithMany(u => u.RecipeTags)
                 .HasForeignKey(sc => sc.RecipeId);
             builder
                 .HasOne(r => r.Tag)

@@ -26,7 +26,7 @@ namespace Application.Recipes
             Recipe changedRecipe = _recipeService.FirstOrDefault(e => (e.Owner == recipe.Owner && e.Name == recipe.Name));
             changedRecipe.ShortInfo = recipe.ShortInfo;
             changedRecipe.TimeRemaining = recipe.TimeRemaining;
-            changedRecipe.Tags = recipe.Tags;
+            changedRecipe.RecipeTags = recipe.RecipeTags;
             changedRecipe.Steps = recipe.Steps;
             changedRecipe.Ingridients = recipe.Ingridients;
             changedRecipe.CountPersons = recipe.CountPersons;

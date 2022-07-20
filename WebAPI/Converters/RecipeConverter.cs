@@ -13,7 +13,7 @@ namespace WebAPI.Converters
             recipe.CountPersons = recipeDto.CountPersons;
             recipe.TimeRemaining = recipeDto.TimeRemaining;
             recipe.ShortInfo = recipeDto.ShortInfo;
-            recipe.Tags = recipeDto.Tags.ConvertTagListFromDto();
+            recipe.RecipeTags = recipeDto.Tags.ConvertTagListFromDto();
             recipe.Steps = recipeDto.Steps.ConvertStepListFromDto();
             recipe.Owner = recipeDto.Owner.ConverUserFromDto();
             recipe.Ingridients = recipeDto.Ingridients.ConvertIngridientListFromDto();
@@ -29,7 +29,7 @@ namespace WebAPI.Converters
             recipeDto.CountPersons = recipe.CountPersons;
             recipeDto.TimeRemaining = recipe.TimeRemaining;
             recipeDto.ShortInfo = recipe.ShortInfo;
-            recipeDto.Tags = recipe.Tags.ConvertTagListToDto();
+            recipeDto.Tags = recipe.RecipeTags.ConvertTagListToDto();
             recipeDto.Steps = recipe.Steps.ConvertStepListToDto();
             recipeDto.Owner = recipe.Owner.ConvertUserToDto();
             recipeDto.Ingridients = recipe.Ingridients.ConvertIngridientListToDto();
