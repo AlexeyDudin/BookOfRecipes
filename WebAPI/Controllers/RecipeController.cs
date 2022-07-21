@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet, Route("{user}")]
-        public IActionResult GetUserRecipes([FromBody] UserDto user)
+        public IActionResult GetUserRecipes([FromQuery] UserDto user)
         {
             return GetResponse(_recipeApiService.GetRecipeOfUser(user));
         }

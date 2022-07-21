@@ -18,16 +18,14 @@ namespace WebAPI.Services.User
 
         public Result CreateUser(UserDto user)
         {
-            UserDto addedUser = default;
             try
             {
-                addedUser = UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password));
+                return new Result(JsonSerializer.Serialize(UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password))), ResponseStatus.Ok);
             }
             catch (Exception ex)
             {
                 return new Result(ex.Message, ResponseStatus.Error);
             }
-            return new Result(JsonSerializer.Serialize(addedUser), ResponseStatus.Ok);
         }
 
         public Result GetUserInfo(UserDto user)

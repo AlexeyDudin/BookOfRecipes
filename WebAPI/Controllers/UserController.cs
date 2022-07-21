@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
-using WebAPI.Dto.Response;
 using WebAPI.Services.User;
 
 namespace WebAPI.Controllers
@@ -22,7 +21,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet, Route("")]
-        public IActionResult GetUserInfo([FromBody] UserDto user)
+        public IActionResult GetUserInfo([FromQuery] UserDto user)
         {
             return GetResponse(_userApiService.GetUserInfo(user));
         }

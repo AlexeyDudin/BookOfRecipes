@@ -5,7 +5,7 @@ namespace WebAPI.Controllers
 {
     public class BaseController : Controller
     {
-        public IActionResult GetResponse(Result response)
+        protected IActionResult GetResponse(Result response)
         {
             switch (response.Status)
             {
