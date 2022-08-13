@@ -12,5 +12,6 @@ namespace WebAPI.Services.Recipe
         Result ChangeRecipe(RecipeDto recipe);
 
         Result GetRecipeByContainingName(string name);
+        Result GetTopRecipe();
     }
 }

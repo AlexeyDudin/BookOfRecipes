@@ -2,6 +2,7 @@
 {
     public class Likes
     {
+        public long Id { get; set; }
         private long all;
         private long likes;
         public double Result { get; set; }

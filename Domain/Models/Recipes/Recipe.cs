@@ -21,8 +21,9 @@ namespace Domain.Models.Recipes
         public int CountPersons { get; set; }
         public List<Ingridient> Ingridients { get; set; }
         public List<Step> Steps { get; set; }
+        public ReceipePhoto Photo { get; set; }
 
         public long OwnerId { get; set; }
-        //public Likes Likes { get; set; }
+        public Likes Likes { get; set; }
     }
 }

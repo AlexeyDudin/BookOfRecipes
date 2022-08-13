@@ -62,5 +62,17 @@ namespace WebAPI.Services.Recipe
             //TODO
             throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
         }
+
+        public Result GetTopRecipe()
+        {
+            try
+            {
+                return new Result(_recipeService.GetTopRecipe(), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
+        }
     }
 }

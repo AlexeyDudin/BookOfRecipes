@@ -9,5 +9,6 @@ namespace Application.Recipes
         Recipe ChangeRecipe(Recipe recipe);
         List<Recipe> GetByContainigName(string name);
         List<Recipe> GetAllRecipes();
+        Recipe GetTopRecipe();
     }
 }

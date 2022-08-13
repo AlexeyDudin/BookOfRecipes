@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Domain.Models.Recipes;
+using System.Collections;
 using System.Linq.Expressions;
 
 namespace Domain.Foundation

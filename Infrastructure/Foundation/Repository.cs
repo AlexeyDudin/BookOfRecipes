@@ -1,7 +1,5 @@
 ﻿using Domain.Foundation;
-using Domain.Models.Users;
 using Microsoft.EntityFrameworkCore;
-using System.Collections;
 using System.Linq.Expressions;
 
 namespace Infrastructure.Foundation

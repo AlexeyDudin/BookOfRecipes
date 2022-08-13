@@ -38,5 +38,11 @@ namespace WebAPI.Controllers
         {
             return GetResponse(_recipeApiService.ChangeRecipe(recipeDto));
         }
+
+        [HttpGet, Route("top")]
+        public IActionResult GetTopRecipe()
+        {
+            return GetResponse(_recipeApiService.GetTopRecipe());
+        }
     }
 }

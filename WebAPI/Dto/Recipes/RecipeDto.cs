@@ -10,5 +10,6 @@
         public int CountPersons { get; set; }
         public List<IngridientDto> Ingridients { get; set; }
         public List<StepDto> Steps { get; set; }
+        public RecipePhotoDto RecipePhoto { get; set; }
     }
 }
