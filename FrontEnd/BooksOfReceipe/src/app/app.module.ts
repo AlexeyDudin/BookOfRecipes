@@ -13,6 +13,7 @@ import { SearchComponent } from './Pages/search/search.component';
 import { TopReceipeComponent } from './Pages/top-receipe/top-receipe.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-card.component';
+import { SearchTagComponent } from './Components/search-tag/search-tag.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-
     SearchComponent,
     TopReceipeComponent,
     MainPageComponent,
-    SmartInfoCardComponent
+    SmartInfoCardComponent,
+    SearchTagComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,8 @@
     flex-direction: row;
     align-content: space-between;
     justify-content: space-between;
+
+    background: #FBF9F4;
 }
 
 .footer__logo
