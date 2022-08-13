@@ -1,0 +1,74 @@
+.smart_info__header_text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 62px;
+    color: #25292D;
+}
+
+.smart_info__main_text
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+
+    color: #4A525A;
+}
+
+.smart_info__header__position
+{
+    margin-left: 120px;
+    margin-top: 113px;
+}
+
+.smart_info__main_position
+{
+    margin-top: 13px;
+    margin-left: 120px;
+    width: 37%;
+}
+
+.smart_info
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.smart_info__info
+{
+    margin-top: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.like_and_time__like_symbol
+{
+    padding-right: 9px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.like_and_time__like_count
+{
+    padding-right: 30px;
+}
+
+.like_and_time__time_symbol
+{
+    padding-right: 10px;
+}
+
+.top_receipe__info:after
+{
+    flex-basis: 3;
+    content: '';
+    display: table;
+    visibility: visible;
+}

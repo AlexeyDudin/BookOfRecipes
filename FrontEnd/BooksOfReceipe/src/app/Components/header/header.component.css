@@ -1,0 +1,50 @@
+.header
+{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.logo
+{
+    height: 29px;
+    margin-top: 44px;
+    margin-left: 120px;
+    margin-right: 80px;
+}
+
+.buttons
+{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin-top: 48px;
+}
+
+.header__button
+{
+    margin: 0 10px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.login
+{
+    width: 15%;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+}
+
+.login__image
+{
+    margin-top: -12px;
+}
+
+.text__orange
+{
+    color: #FDB100;
+}

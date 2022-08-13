@@ -1,0 +1,29 @@
+.footer
+{
+    height: 113px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.footer__logo
+{
+    margin: 37px 120px ;
+    width: 132px;
+    height: 39px;
+}
+
+.footer__copyright
+{
+    margin-top: 37px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 119px;
+
+    color: #4A525A;
+}
