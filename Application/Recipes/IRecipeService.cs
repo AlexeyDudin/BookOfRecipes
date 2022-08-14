@@ -1,4 +1,5 @@
 ﻿using Domain.Models.Recipes;
+using Domain.Models.Users;
 
 namespace Application.Recipes
 {
@@ -10,5 +11,6 @@ namespace Application.Recipes
         List<Recipe> GetByContainigName(string name);
         List<Recipe> GetAllRecipes();
         Recipe GetTopRecipe();
+        List<Recipe> GetAllRecipesOfUser(User user);
     }
 }

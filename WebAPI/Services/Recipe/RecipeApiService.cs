@@ -53,6 +53,14 @@ namespace WebAPI.Services.Recipe
 
         public Result GetRecipeOfUser(UserDto user)
         {
+            try
+            {
+                return new Result(_recipeService.GetAllRecipesOfUser(user.ConverUserFromDto()), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
             //TODO
             throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
         }

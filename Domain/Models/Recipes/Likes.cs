@@ -1,23 +1,27 @@
-﻿namespace Domain.Models.Recipes
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain.Models.Recipes
 {
     public class Likes
     {
+        [Key]
         public long Id { get; set; }
-        private long all;
-        private long likes;
+
         public double Result { get; set; }
+        public long All { get; set; }
+        public long Like { get; set; }
 
         public void AddLike()
         {
-            likes++;
-            all++;
-            Result = likes / all;
+            Like++;
+            All++;
+            Result = Like / All;
         }
 
         public void AddDislike()
         {
-            all++;
-            Result = likes / all;
+            All++;
+            Result = Like / All;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Domain.Foundation;
 using Domain.Models.Recipes;
+using Domain.Models.Users;
 
 namespace Application.Recipes
 {
@@ -39,6 +40,11 @@ namespace Application.Recipes
         public List<Recipe> GetAllRecipes()
         {
             return _recipeService.GetAll();
+        }
+
+        public List<Recipe> GetAllRecipesOfUser(User user)
+        {
+            return (List<Recipe>)_recipeService.GetAll().Where(r => r.Owner == user);
         }
 
         public List<Recipe> GetByContainigName(string name)
