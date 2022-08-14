@@ -24,11 +24,14 @@
 
 .header__button
 {
-    margin: 0 10px;
+    margin: -10px 10px 0 5px;
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
+
+    border: none;
+    background: none;
 }
 
 .login

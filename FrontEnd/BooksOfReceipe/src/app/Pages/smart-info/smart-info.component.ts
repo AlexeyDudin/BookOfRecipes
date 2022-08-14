@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SmartInfoCard } from 'src/app/Classes/CardClass';
+import { SmartInfoCard } from 'src/app/Entityes/SmartInfoCard';
 
 @Component({
   selector: 'app-smart-info',

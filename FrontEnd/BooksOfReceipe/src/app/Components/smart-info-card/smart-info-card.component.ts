@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { SmartInfoCard } from 'src/app/Classes/CardClass';
+import { SmartInfoCard } from 'src/app/Entityes/SmartInfoCard';
 
 @Component({
   selector: 'app-smart-info-card',
@@ -17,11 +17,6 @@ export class SmartInfoCardComponent implements OnInit {
      text: "",
      imagePath: "" 
   };
-
-  // @Input() imageSrc: string = "";
-  // @Input() titleText: string = "qwer";
-  // @Input() mainText: string = "zzdss";
-
 
   ngOnInit(): void {
   }

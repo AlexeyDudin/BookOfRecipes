@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TagClass } from 'src/app/Classes/TagClass';
+import { TagClass } from 'src/app/Entityes/TagClass';
 
 @Component({
   selector: 'app-search',

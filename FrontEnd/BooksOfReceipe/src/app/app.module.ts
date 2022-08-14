@@ -33,8 +33,8 @@ import { SearchTagComponent } from './Components/search-tag/search-tag.component
     MatSliderModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HeaderComponent },
-      { path: '', component: FooterComponent },
+      { path: '', component: MainPageComponent },
+      //{ path: 'recipes', component: FooterComponent },
     ])
   ],
   providers: [],
