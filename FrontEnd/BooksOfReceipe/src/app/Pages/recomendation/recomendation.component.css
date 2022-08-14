@@ -1,0 +1,107 @@
+.recomendation
+{
+    margin-left: 120px;
+    display: flex;
+    flex-direction: row;
+
+    height: 800px;
+    
+    z-index: 99;
+    background: url(/assets/images/RecomendationImage.png) top right no-repeat;
+}
+
+.recomendation__text
+{
+    width: 50%;
+    align-self: center;
+}
+
+.recomendation__image
+{
+    width: 40%;
+    margin-top: -120px;
+    margin-left: 300px;
+}
+
+.recomendation__buttons
+{
+    margin-top: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.button__add_receipe
+{
+    background-color: #FDB100;
+    border-radius: 16px;
+    width: 278px;
+    height: 60px;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+
+    /* identical to box height, or 156% */
+
+    color: #FFFFFF;
+}
+
+.button__login
+{
+    border-radius: 16px;
+    margin-left: 24px;
+    width: 278px;
+    height: 60px;
+    color: #FDB100;
+    border: 1px solid #FDB100;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+
+    text-align: center;
+    color: #FDB100;
+}
+
+.recomendation__image__width
+{
+    width: 100%;
+}
+
+.text__header
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 88px;
+}
+
+.text__main_text
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #4A525A;
+}

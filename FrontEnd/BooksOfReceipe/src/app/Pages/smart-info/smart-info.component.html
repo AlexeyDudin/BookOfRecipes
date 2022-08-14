@@ -1,0 +1,13 @@
+<div class="smart_info">
+    <div class="smart_info__main_text">
+        <div class="smart_info__header__position smart_info__header_text">Умная сортировка по тегам</div>
+        <div class="smart_info__main_position smart_info__main_text">Добавляй рецепты и указывай наиболее популярные теги. Это позволит быстро находить любые категории</div>
+    </div>
+    <div class="smart_info__info">
+        
+            <app-smart-info-card *ngFor="let card of smartInfoCards"
+                [card]="card">
+                
+            </app-smart-info-card>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="top_receipe">
+    <div class="top_receipe__image">
+        <img src="{{topRecipe.imagePath}}"/>
+    </div>
+    <div class="top_receipe__info">
+        <div class="info__like_and_time">
+            <div class="like_and_time__like_symbol">
+                <img src="{{likeImage}}"/>
+            </div>
+            <div class="like_and_time__like_count">{{topRecipe.likeCount}}</div>
+            <div class="like_and_time__time_symbol">
+                <img src="{{timerImage}}"/>
+            </div>
+            <div class="like_and_time__time_count">{{topRecipe.timer}} минут</div>
+        </div>
+        <div class="info__logo">
+            <img [src]="receipeOfDayLogo"/>
+        </div>
+        <div class="info__header_text">
+            {{topRecipe.title}}
+            <!-- Тыквенный супчик на кокосовом молоке -->
+        </div>
+        <div class="info__main_text">
+            {{topRecipe.text}}
+        </div>
+    </div>
+</div>
