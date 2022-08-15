@@ -16,11 +16,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddScoped<IRecipeApiService, RecipeApiService>();
 builder.Services.AddScoped<IRecipeService, RecipeService>();
-builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 
 builder.Services.AddDbContext<TLRecipesDbContext>( c => c.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 

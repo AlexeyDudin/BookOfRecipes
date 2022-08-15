@@ -7,12 +7,12 @@ namespace Application.Recipes
     public class RecipeService : IRecipeService
     {
         private readonly IRepository<Recipe> _recipeService;
-        private readonly IRecipeRepository _unitOfWork;
+        private readonly IBookRepository _unitOfWork;
 
-        public RecipeService(IRecipeRepository repository)
+        public RecipeService(IBookRepository repository)
         {
             _unitOfWork = repository;
-            _recipeService = _unitOfWork.Repository;
+            _recipeService = _unitOfWork.RecipeRepository;
         }
 
         public Recipe Add(Recipe recipe)

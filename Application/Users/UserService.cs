@@ -5,13 +5,13 @@ namespace Application.Users
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _unitOfWork;
+        private readonly IBookRepository _unitOfWork;
         private readonly IRepository<User> _userRepository;
 
-        public UserService(IUserRepository unitOfWork)
+        public UserService(IBookRepository unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _userRepository = unitOfWork.Repository;
+            _userRepository = unitOfWork.UserRepository;
         }
 
         public void ChangePassword(string login, string password)

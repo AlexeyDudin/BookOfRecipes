@@ -1,19 +1,23 @@
 ﻿using Domain.Foundation;
 using Domain.Models.Recipes;
+using Domain.Models.Users;
 
 namespace Infrastructure.Foundation
 {
-    public class RecipeRepository : IRecipeRepository, IDisposable
+    public class BookRepository : IBookRepository, IDisposable
     {
         private TLRecipesDbContext _dbContext;
         private IRepository<Recipe> _recipeRepository;
+        private IRepository<User> _userRepository;
 
-        public IRepository<Recipe> Repository { get { return _recipeRepository; } }
+        public IRepository<Recipe> RecipeRepository { get { return _recipeRepository; } }
+        public IRepository<User> UserRepository { get { return _userRepository; } }
 
-        public RecipeRepository(TLRecipesDbContext dbContext)
-        { 
+        public BookRepository(TLRecipesDbContext dbContext)
+        {
             _dbContext = dbContext;
             _recipeRepository = new Repository<Recipe>(dbContext);
+            _userRepository = new Repository<User>(dbContext);
         }
 
         public void Commit()
