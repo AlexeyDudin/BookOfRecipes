@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,12 @@ export class HeaderComponent implements OnInit {
   logoSrc = "./assets/images/Recipes.svg";
   loginSrc = "./assets/images/login.svg";
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
   
   ngOnInit(): void {
   }
-
+  
+  openDialog() {
+    this.dialog.open(LoginComponent);
+  }
 }
