@@ -14,6 +14,8 @@ import { TopReceipeComponent } from './Pages/top-receipe/top-receipe.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-card.component';
 import { SearchTagComponent } from './Components/search-tag/search-tag.component';
+import { LoginComponent } from './Components/login/login.component';
+import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,18 +28,20 @@ import { SearchTagComponent } from './Components/search-tag/search-tag.component
     TopReceipeComponent,
     MainPageComponent,
     SmartInfoCardComponent,
-    SearchTagComponent
+    SearchTagComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     MatSliderModule,
+    MatDialog,
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       //{ path: 'recipes', component: FooterComponent },
     ])
   ],
-  providers: [],
+  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
