@@ -1,0 +1,24 @@
+<div class="login">
+    <div mat-dialog-close class="login__close_button"></div>
+    <div mat-dialog-title class="login__header">{{title}}</div>
+    <div mat-dialog-content class="login__text" *ngIf="isShowText">{{text}}</div>
+    <div class="login__buttons" *ngIf="isShowText">
+        <button class="login__button__auth" (click)="loginClick()">Войти</button>
+        <button class="login__button__register" (click)="registerClick()">Регистрация</button>
+    </div>
+    <form class="authorize" *ngIf="isShowLoginPage">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Логин</mat-label>
+            <input matInput placeholder="Введите логин" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Пароль</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" value="">
+        </mat-form-field>
+        <div class="login__buttons">
+            <button class="login__button__auth" (click)="loginClick()">Войти</button>
+            <button class="login__button__register">Отмена</button>
+        </div>
+    </form>
+
+</div>

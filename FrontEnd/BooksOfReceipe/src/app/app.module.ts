@@ -14,8 +14,15 @@ import { TopReceipeComponent } from './Pages/top-receipe/top-receipe.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-card.component';
 import { SearchTagComponent } from './Components/search-tag/search-tag.component';
-import { LoginComponent } from './Components/login/login.component';
-import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { LoginComponent } from './Components/UserComponent/login/login.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { RegistrationComponent } from './Components/UserComponent/registration/registration.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -29,19 +36,27 @@ import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog'
     MainPageComponent,
     SmartInfoCardComponent,
     SearchTagComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     MatSliderModule,
-    MatDialog,
+    MatDialogModule,
     BrowserAnimationsModule,
+    MatNativeDateModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       //{ path: 'recipes', component: FooterComponent },
     ])
   ],
-  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}, 
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
