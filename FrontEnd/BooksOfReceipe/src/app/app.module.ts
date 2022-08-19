@@ -14,6 +14,17 @@ import { TopReceipeComponent } from './Pages/top-receipe/top-receipe.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-card.component';
 import { SearchTagComponent } from './Components/search-tag/search-tag.component';
+import { LoginComponent } from './Components/UserComponent/login/login.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { RegistrationComponent } from './Components/UserComponent/registration/registration.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { RecipesComponent } from './Pages/recipes/recipes.component';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info-card/expanded-smart-info-card.component';
 
 @NgModule({
   declarations: [
@@ -26,18 +37,30 @@ import { SearchTagComponent } from './Components/search-tag/search-tag.component
     TopReceipeComponent,
     MainPageComponent,
     SmartInfoCardComponent,
-    SearchTagComponent
+    SearchTagComponent,
+    LoginComponent,
+    RegistrationComponent,
+    RecipesComponent,
+    ExpandedSmartInfoCardComponent
   ],
   imports: [
     BrowserModule,
     MatSliderModule,
+    MatDialogModule,
     BrowserAnimationsModule,
+    MatNativeDateModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
-      //{ path: 'recipes', component: FooterComponent },
+      { path: 'recipes', component: RecipesComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}, 
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

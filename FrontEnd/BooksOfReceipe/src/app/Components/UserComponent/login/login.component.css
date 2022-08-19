@@ -1,0 +1,96 @@
+.login
+{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+
+    padding: 24px 60px 60px 60px;
+
+    max-width: 700px;
+}
+
+ .login__close_button
+{
+    height: 16px;
+    background: url(/assets/images/CloseCross.svg) top right no-repeat;  
+}
+
+.login__header
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #25292D;
+}
+
+.login__text
+{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+
+/* or 156% */
+font-feature-settings: 'case' on;
+
+color: #4A525A;
+
+margin-top: 30px;
+}
+
+.login__buttons
+{
+    margin-top: 40px;
+    display: inline-flex;
+    justify-content:space-between;
+    height: 60px;
+}
+
+.login__button__auth
+{
+    background: #FDB100;
+    border-radius: 16px;
+
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 28px;
+flex-grow: 1;
+
+/* identical to box height, or 156% */
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.login__button__register
+{
+    border: 1px solid #FDB100;
+    border-radius: 16px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 28px;
+
+/* identical to box height, or 156% */
+text-align: center;
+background-color: #FFFFFF;
+flex-grow: 1;
+color: #FDB100;
+}
+
+.authorize
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
