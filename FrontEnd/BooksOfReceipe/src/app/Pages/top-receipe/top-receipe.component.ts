@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopRecipe } from 'src/app/Entityes/TopRecipe';
+import { Recipe } from 'src/app/Entityes/Recipe';
 
 @Component({
   selector: 'app-top-receipe',
@@ -10,7 +10,7 @@ export class TopReceipeComponent implements OnInit {
 
   constructor() { }
   
-  topRecipe: TopRecipe = {
+  topRecipe: Recipe = {
     imagePath: "./assets/images/Rectangle 8.png",
     title: "Тыквенный супчик на кокосовом молоке",
     text: "Если у вас осталась тыква, и вы не знаете что с ней сделать, то это решение для вас! Ароматный, согревающий суп-пюре на кокосовом молоке. Можно даже в Пост!",

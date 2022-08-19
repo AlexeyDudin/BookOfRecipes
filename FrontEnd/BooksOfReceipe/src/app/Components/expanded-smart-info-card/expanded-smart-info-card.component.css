@@ -1,0 +1,49 @@
+.recipe
+{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.recipe__position
+{
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+}
+
+.recipe__margins
+{
+    margin-top: 40px;
+}
+
+.recipe__image
+{
+    max-width: 430px;
+    border-radius: 72px 0px;
+    /* background-image: (url()); {{recipe.imagePath}} */
+}
+
+.recipe__text_info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.text_info__info
+{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.info__tags
+{
+    width: 90px;
+    height: 20px;
+    color: #F29E1F;
+    background: #FDB100;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

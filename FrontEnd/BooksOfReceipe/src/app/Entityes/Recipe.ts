@@ -1,4 +1,4 @@
-export class TopRecipe {
+export class Recipe {
     title: string = "";
     text: string = "";
     imagePath: string = "";

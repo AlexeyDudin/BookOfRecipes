@@ -22,7 +22,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-
+import { RecipesComponent } from './Pages/recipes/recipes.component';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info-card/expanded-smart-info-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     SmartInfoCardComponent,
     SearchTagComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RecipesComponent,
+    ExpandedSmartInfoCardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
-      //{ path: 'recipes', component: FooterComponent },
+      { path: 'recipes', component: RecipesComponent },
     ])
   ],
   providers: [

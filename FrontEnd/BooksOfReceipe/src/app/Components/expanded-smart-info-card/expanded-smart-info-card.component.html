@@ -1,0 +1,16 @@
+<div class="recipe recipe__position recipe__margins" *ngFor="let recipe in recipes">
+    <div class="recipe__image"></div>
+    <div class="recipe__text_info">
+        <div class="text_info__info">
+            <div class="info__tags" *ngFor="let tag in recipe.tags"></div>
+            <div class="info__stars"></div>
+            <div class="info__likes"></div>
+        </div>
+        <div class="text_info__header"></div>
+        <div class="text_info__description"></div>
+        <div class="text_info__time_and_persons">
+            <div class="time_and_persons__time"></div>
+            <div class="time_and_persons__persons"></div>
+        </div>
+    </div>
+</div>
