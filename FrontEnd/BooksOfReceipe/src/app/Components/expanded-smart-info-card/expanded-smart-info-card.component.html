@@ -3,8 +3,14 @@
     <div class="recipe__text_info">
         <div class="text_info__info">
             <div class="info__tags" *ngFor="let tag in recipe.tags"></div>
-            <div class="info__stars"></div>
-            <div class="info__likes"></div>
+            <div class="info__stars">
+                <div class="info__stars__star_frame"></div>
+                <div class="info__start__count">{{recipe.likeCount}}</div>
+            </div>
+            <div class="info__likes">
+                <div class="info__likes__frame"></div>
+                <div class="info__likes__count">{{recipe.likeCount}}</div>
+            </div>
         </div>
         <div class="text_info__header"></div>
         <div class="text_info__description"></div>
