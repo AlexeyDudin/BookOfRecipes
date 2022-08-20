@@ -10,6 +10,8 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
 
   constructor() { }
 
+  starImage = "./asset/";
+
   recipe: Recipe = 
   {
       title: "",
