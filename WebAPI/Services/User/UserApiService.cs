@@ -3,17 +3,19 @@ using System.Text.Json;
 using WebAPI.Converters;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
+using WebAPI.Security.Auths;
 
 namespace WebAPI.Services.User
 {
     public class UserApiService : IUserApiService
     {
         private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
 
-
-        public UserApiService(IUserService userService)
+        public UserApiService(IUserService userService, ITokenService tokenService)
         {
             _userService = userService;
+            _tokenService = tokenService;
         }
 
         public Result CreateUser(UserDto user)
@@ -76,6 +78,20 @@ namespace WebAPI.Services.User
             catch (Exception ex)
             {
                 return new Result(ex.Message, ResponseStatus.Error);
+            }
+        }
+
+        public Result Login( UserLoginDto userLoginDto )
+        {
+            try
+            {
+                string token = _tokenService.GenerateToken( userLoginDto );
+                ResponseStatus responseStatus = string.IsNullOrEmpty( token ) ? ResponseStatus.UserNotFound : ResponseStatus.Ok;
+                return new Result(token, responseStatus);  
+            }
+            catch ( Exception ex )
+            {
+                return new Result( ex.Message, ResponseStatus.Error );
             }
         }
     }

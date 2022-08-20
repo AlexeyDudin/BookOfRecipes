@@ -4,5 +4,6 @@
     {
         Ok = 0,
         Error = 1,
+        UserNotFound = 2
     }
 }

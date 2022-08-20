@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
 using WebAPI.Services.User;
 
@@ -9,7 +10,7 @@ namespace WebAPI.Controllers
     {
         private readonly IUserApiService _userApiService;
 
-        public UserController(IUserApiService userApiService)
+        public UserController( IUserApiService userApiService )
         {
             _userApiService = userApiService;
         }
@@ -26,6 +27,7 @@ namespace WebAPI.Controllers
             return GetResponse(_userApiService.GetUserInfo(user));
         }
 
+        [Authorize]
         [HttpGet, Route("all")]
         public IActionResult GetAllUser()
         {
@@ -44,5 +46,10 @@ namespace WebAPI.Controllers
             return GetResponse(_userApiService.ChangePassword(user, user.Password));
         }
 
+        [HttpPost( "login" )]
+        public IActionResult GetToken( [FromBody] UserLoginDto userLoginDto )
+        {
+            return GetResponse( _userApiService.Login( userLoginDto ) );
+        }
     }
 }

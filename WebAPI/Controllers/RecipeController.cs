@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
 using WebAPI.Dto.Recipes;
 using WebAPI.Services.Recipe;
 
 namespace WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/recipes")]
     public class RecipeController : BaseController
     {
@@ -39,6 +41,7 @@ namespace WebAPI.Controllers
             return GetResponse(_recipeApiService.ChangeRecipe(recipeDto));
         }
 
+        [AllowAnonymous]
         [HttpGet, Route("top")]
         public IActionResult GetTopRecipe()
         {
