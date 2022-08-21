@@ -12,23 +12,27 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
 
   starImage = "./asset/";
 
-  recipe: Recipe = 
-  {
-      title: "",
-      text: "",
-      imagePath: "",
-      likeCount: 0,
-      timer: 0 
-  };
+  // recipe: Recipe = 
+  // {
+  //     title: "",
+  //     text: "",
+  //     imagePath: "",
+  //     likeCount: 0,
+  //     timer: 0,
+  //     persons: 0,
+  //     tags: [],
+  // };
 
-  @Input() cards: Recipe[] = 
+  @Input() recipes: Recipe[] = 
   [
     {
       title: "first",
       text: "first text",
       imagePath: "",
       likeCount: 0,
-      timer: 0
+      timer: 0,
+      persons: 0,
+      tags:  [{text : "Hello"}],
     }
   ];
 

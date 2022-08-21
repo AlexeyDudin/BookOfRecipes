@@ -15,7 +15,9 @@ export class TopReceipeComponent implements OnInit {
     title: "Тыквенный супчик на кокосовом молоке",
     text: "Если у вас осталась тыква, и вы не знаете что с ней сделать, то это решение для вас! Ароматный, согревающий суп-пюре на кокосовом молоке. Можно даже в Пост!",
     likeCount: 123,
-    timer: 45
+    timer: 45,
+    persons: 0,
+    tags:[],
   }
 
   // topReceipeImage="./assets/images/Rectangle 8.png";

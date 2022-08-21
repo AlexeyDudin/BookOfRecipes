@@ -1,8 +1,13 @@
-<div class="recipe recipe__position recipe__margins" *ngFor="let recipe in recipes">
+<div class="recipe recipe__position recipe__margins" *ngFor="let recipe of recipes">
     <div class="recipe__image"></div>
     <div class="recipe__text_info">
         <div class="text_info__info">
-            <div class="info__tags" *ngFor="let tag in recipe.tags"></div>
+            <div class="info__tags">
+                <div class="tags__tag" *ngFor="let tag of recipe.tags">
+                    <div class="tag__text_style">{{tag.text}}
+                    </div>
+                </div>
+            </div>
             <div class="info__stars">
                 <div class="info__stars__star_frame"></div>
                 <div class="info__start__count">{{recipe.likeCount}}</div>
@@ -12,11 +17,24 @@
                 <div class="info__likes__count">{{recipe.likeCount}}</div>
             </div>
         </div>
-        <div class="text_info__header"></div>
-        <div class="text_info__description"></div>
+        <div class="text_info__header">{{recipe.title}}</div>
+        <div class="text_info__description">{{recipe.text}}</div>
         <div class="text_info__time_and_persons">
-            <div class="time_and_persons__time"></div>
-            <div class="time_and_persons__persons"></div>
+            <div class="time_and_persons__time">
+                <div class="time__image"></div>
+                <div class="time__info">
+                    <div class="info__text_style">Время приготовления:</div>
+                    <div class="info__time_style">{{recipe.timer}} минут</div>
+                </div>
+            </div>
+            <div class="time_and_persons__persons">
+                <div class="person__image"></div>
+                <div class="person__info">
+                    <div class="info__text_style">Рецепт на:</div>
+                    <div class="info__person_style">{{recipe.persons}} персон</div>
+                </div>
+            </div>
+            <div></div>
         </div>
     </div>
 </div>
