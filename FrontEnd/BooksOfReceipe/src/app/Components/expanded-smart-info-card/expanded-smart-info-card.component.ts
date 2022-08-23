@@ -33,6 +33,15 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
       timer: 0,
       persons: 0,
       tags:  [{text : "Hello"}],
+    },
+    {
+      title: "second",
+      text: "first text",
+      imagePath: "",
+      likeCount: 0,
+      timer: 0,
+      persons: 0,
+      tags:  [{text : "Hello"}],
     }
   ];
 
