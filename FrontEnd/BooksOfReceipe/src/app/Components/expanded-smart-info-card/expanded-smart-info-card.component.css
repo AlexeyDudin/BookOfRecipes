@@ -2,6 +2,8 @@
 {
     display: inline-flex;
     justify-content: space-between;
+    background-color: white;
+    border-radius: 72px 24px 24px 24px;
 }
 
 .recipe__position
