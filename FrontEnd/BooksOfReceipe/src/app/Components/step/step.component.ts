@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Step } from 'src/app/Entityes/Steep';
 
 @Component({
   selector: 'app-step',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepComponent implements OnInit {
 
-  constructor() { }
+  _step: Step = {
+    count: 0,
+    description: "",
+  }
+  constructor(step:Step) {
+    this._step = step; 
+   }
 
   ngOnInit(): void {
   }
