@@ -25,6 +25,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { RecipesComponent } from './Pages/recipes/recipes.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info-card/expanded-smart-info-card.component';
+import { StepComponent } from './Components/step/step.component';
+import { EditRecipeComponent } from './Pages/edit-recipe/edit-recipe.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info
     LoginComponent,
     RegistrationComponent,
     RecipesComponent,
-    ExpandedSmartInfoCardComponent
+    ExpandedSmartInfoCardComponent,
+    StepComponent,
+    EditRecipeComponent
   ],
   imports: [
     BrowserModule,
