@@ -5,10 +5,11 @@
         <button mat-button class="header__button" [routerLink]="'recipes'">Рецепты</button>
         <button mat-button class="header__button">Избранное</button>
     </div>
-    <div class="login" (click)="openDialog()">
+    <!-- <div class="login" (click)="openDialog()">
         <div class="login__image">
             <img [src]=loginSrc/>
         </div>
         <button mat-button class="header__button text__orange">Войти</button>
-    </div>
+    </div> -->
+    <app-login></app-login>
 </div>

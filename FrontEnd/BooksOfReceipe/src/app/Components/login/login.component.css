@@ -1,0 +1,17 @@
+.login
+{
+    width: 15%;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+}
+
+.login__image
+{
+    margin-top: -12px;
+}
+
+.text__orange
+{
+    color: #FDB100;
+}
