@@ -8,7 +8,9 @@ import { Recipe } from 'src/app/Entityes/Recipe';
 })
 export class ExpandedSmartInfoCardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   starImage = "./asset/";
 
@@ -23,28 +25,21 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
   //     tags: [],
   // };
 
-  @Input() recipes: Recipe[] = 
-  [
-    {
-      title: "first",
-      text: "first text",
-      imagePath: "",
-      likeCount: 0,
-      timer: 0,
-      persons: 0,
-      tags:  [{text : "Hello"}],
-    },
-    {
-      title: "second",
-      text: "first text",
-      imagePath: "",
-      likeCount: 0,
-      timer: 0,
-      persons: 0,
-      tags:  [{text : "Hello"}],
-    }
-  ];
-
+  @Input() recipe: Recipe = {
+    id: 0,
+    title: "",
+    text: "",
+    imagePath: "",
+    likeCount: 0,
+    timer: 0,
+    persons: 0,
+    tags: [
+        {
+            text : ""
+        }],
+    ingridients:[],
+    step:[]
+  }
   ngOnInit(): void {
   }
 

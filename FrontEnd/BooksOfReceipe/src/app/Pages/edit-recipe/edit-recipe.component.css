@@ -1,0 +1,104 @@
+.recipe
+{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    vertical-align:middle;
+}
+
+.back_button
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* identical to box height */
+
+    color: #FDB100;
+    display: inline-flex;
+
+    margin-top: 59px;
+    margin-left: 120px;
+}
+
+.back_button__arrow
+{
+    margin-right: 13px;
+}
+
+.recipe__header
+{
+    margin-top: 11px;
+    margin-left: 120px;
+
+    height: 60px;
+
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.header__title
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 62px;
+
+    /* identical to box height, or 148% */
+
+    color: #25292D;
+}
+
+.header__buttons
+{
+    width: 30%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.button__remove
+{
+    box-sizing: border-box;
+    border: 1px solid rgba(145, 150, 161, 0.7);
+    border-radius: 16px;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.button__edit
+{
+    margin-left: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #FDB100;
+    border-radius: 16px;
+
+    width: 278px;
+    height: 60px;
+}
+
+.edit__text
+{
+    margin-left: 21px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+
+    /* identical to box height, or 156% */
+
+    color: #FFFFFF;
+}

@@ -1,5 +1,7 @@
-<div class="recipe recipe__position recipe__margins" *ngFor="let recipe of recipes">
-    <div class="recipe__image"></div>
+<div class="recipe recipe__position recipe__margins">
+    <div class="recipe__image">
+        <img [src]="recipe.imagePath" />
+    </div>
     <div class="recipe__text_info">
         <div class="text_info__info">
             <div class="info__tags">

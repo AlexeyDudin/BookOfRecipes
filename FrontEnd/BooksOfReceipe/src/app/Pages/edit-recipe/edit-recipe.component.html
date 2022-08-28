@@ -1,1 +1,33 @@
-<p>edit-recipe works!</p>
+<div class="recipe">
+    <div class="back_button">
+        <div class="back_button__arrow">
+            <img src="./assets/images/Left.svg"/>
+        </div>
+        <div class="back_button__text">Назад</div>
+    </div>
+    <div class="recipe__header">
+        <div class="header__title">{{recipe.title}}</div>
+        <div class="header__buttons">
+            <div class="button__remove">
+                <img src="./assets/images/Recycle.svg"/>
+            </div>
+            <div class="button__edit">
+                <img src="./assets/images/Edit.svg"/>
+                <div class="edit__text">Редактировать</div>
+            </div>
+        </div>
+    </div>
+    <div class="recipe__info">
+        <div class="info__image"></div>
+        <app-expanded-smart-info-card [recipe]="recipe"></app-expanded-smart-info-card>
+    </div>
+    <div class="recipe__ingridients_and_steps">
+        <div class="recipe__ingridients">
+            <div class="ingridient" *ngFor="let ingridient of recipe.ingridients">{{ingridient.text}}</div>
+        </div>
+        <div class="recipe__steps">
+            <div class="step" *ngFor="let step of recipe.step">{{step.description}}</div>
+        </div>
+    </div>
+    <div class="end_text">Приятного аппетита</div>
+</div>

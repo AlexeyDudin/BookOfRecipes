@@ -1,6 +1,9 @@
 import { TagClass } from "./TagClass";
+import {IngridientClass} from "./IngridientClass";
+import { StepClass } from "./StepClass";
 
 export class Recipe {
+    id: number = 0;
     title: string = "";
     text: string = "";
     imagePath: string = "";
@@ -11,4 +14,17 @@ export class Recipe {
         {
             text : ""
         }];
+    ingridients: IngridientClass[] = [
+        {
+            text: "",
+            count: 0,
+            typeOfCount: "",
+        }
+    ];
+    step: StepClass[] = [
+        {
+            count: 0,
+            description: "",
+        }
+    ]
     }
