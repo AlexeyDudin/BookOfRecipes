@@ -59,6 +59,7 @@ import { EditRecipeComponent } from './Pages/edit-recipe/edit-recipe.component';
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       { path: 'recipes', component: RecipesComponent },
+      { path: 'recipe/:id', component: EditRecipeComponent},
     ])
   ],
   providers: [

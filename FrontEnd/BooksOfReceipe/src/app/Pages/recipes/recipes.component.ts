@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Recipe } from 'src/app/Entityes/Recipe';
 
 @Component({
   selector: 'app-recipes',
@@ -11,8 +12,40 @@ export class RecipesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
   // constructor() { }
+
+  @Input() recipes: Recipe[] = 
+  [
+    {
+      id: 1,
+      title: "first",
+      text: "first text",
+      imagePath: "",
+      likeCount: 0,
+      timer: 0,
+      persons: 0,
+      tags:  [{text : "Hello"}],
+      ingridients: [],
+      step:[
+        { count:1, description: "Проверка"},
+        {count:2, description: "Тест"}
+      ],
+    },
+    {
+      id:2,
+      title: "second",
+      text: "first text",
+      imagePath: "",
+      likeCount: 0,
+      timer: 0,
+      persons: 0,
+      tags:  [{text : "Hello"}],
+      ingridients:[],
+      step:[],
+    }
+  ];
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -20,4 +53,11 @@ export class RecipesComponent implements OnInit {
     });
   }
 
+  recipeClick(recipeId: number){
+    //this.route
+  }
+
+  ViewRecipe(index: any) {
+    this.router.navigate(['recipe/', index]);
+  }
 }
