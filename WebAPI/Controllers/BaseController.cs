@@ -7,15 +7,13 @@ namespace WebAPI.Controllers
     {
         protected IActionResult GetResponse(Result response)
         {
-            switch (response.Status)
+            return response.Status switch
             {
-                case ResponseStatus.Ok:
-                    return Ok(response.Content);
-                case ResponseStatus.Error:
-                    return BadRequest();
-                default:
-                    return BadRequest();
-            }            
+                ResponseStatus.Ok => Ok( response ),
+                ResponseStatus.Error => BadRequest( response ),
+                ResponseStatus.UserNotFound => Unauthorized(),
+                _ => BadRequest( response )
+            };          
         }
     }
 }

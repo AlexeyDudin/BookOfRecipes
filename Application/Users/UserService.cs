@@ -43,6 +43,11 @@ namespace Application.Users
             return _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
         }
 
+        public User GetUser( string login )
+        {
+            return _userRepository.FirstOrDefault( user => user.Login == login );
+        }
+
         public List<User> GetUsers()
         {
             List<User> userList = _userRepository.GetAll();
