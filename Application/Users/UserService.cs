@@ -25,12 +25,14 @@ namespace Application.Users
             _unitOfWork.Commit();
         }
 
-        public User CreateUser(string login, string password)
+        public User CreateUser(string login, string password, string username, string? description)
         {
             User user = new User
             {
                 Login = login,
-                Password = password
+                Password = password,
+                UserName = username,
+                Description = description
             };
 
             _userRepository.Add(user);

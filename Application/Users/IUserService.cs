@@ -5,7 +5,7 @@ namespace Application.Users
 {
     public interface IUserService
     {
-        User CreateUser(string login, string password);
+        User CreateUser(string login, string password, string username, string? description);
         List<User> GetUsers();
         User GetUserInfo(string login, string password);
         User GetUser( string login );

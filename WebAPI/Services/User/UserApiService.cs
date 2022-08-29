@@ -22,7 +22,7 @@ namespace WebAPI.Services.User
         {
             try
             {
-                return new Result(JsonSerializer.Serialize(UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password))), ResponseStatus.Ok);
+                return new Result(JsonSerializer.Serialize(UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password, user.UserName, user.Description))), ResponseStatus.Ok);
             }
             catch (Exception ex)
             {

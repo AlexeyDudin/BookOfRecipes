@@ -23,16 +23,16 @@
     <form class="authorize" *ngIf="isShowRegisterPage">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Имя</mat-label>
-            <input matInput placeholder="Введите имя" value="">
+            <input matInput placeholder="Введите имя" [value]="this.user.Username">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Логин</mat-label>
-            <input matInput placeholder="Введите логин" value="">
+            <input matInput placeholder="Введите логин" [value]="this.user.Login">
         </mat-form-field>
         <div class="registration__password">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Пароль</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" value="">
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [value]="this.user.Password">
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Повторите пароль</mat-label>
@@ -40,7 +40,7 @@
             </mat-form-field>
         </div>
         <div class="login__buttons">
-            <button class="login__button__auth" (click)="registerPostClick()">Войти</button>
+            <button class="login__button__auth" (click)="registerPostClick()">Зарегистрироваться</button>
             <button class="login__button__register" mat-dialog-close>Отмена</button>
         </div>
     </form>
