@@ -14,6 +14,8 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.http.post('http://localhost:5119/api/user/add', user);
+    let result;
+    let postResult = this.http.post('http://localhost:5119/api/user/add', user, {responseType: "json"}).subscribe(data => {result = data});
+    return result;
   }
 }
