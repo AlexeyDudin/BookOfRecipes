@@ -12,11 +12,11 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class UcLoginComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
-  user: User = {
-    Login: "",
-    Password: "",
+  public user: User = {
+    Login: "AlexeyD93",
+    Password: "1",
     Description: "",
-    Username: "",
+    Username: "Alexey",
   };
 
   title = "Войдите в профиль";

@@ -14,6 +14,6 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.http.post('http://localhost:5119/api/user/add', user, {withCredentials:true});
+    return this.http.post('http://localhost:5119/api/user/add', user);
   }
 }
