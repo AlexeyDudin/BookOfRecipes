@@ -2,6 +2,7 @@
 {
     public class RecipeDto
     {
+        public long Id { get; set; }
         public string Name { get; set; }
         public UserDto Owner { get; set; }
         public string ShortInfo { get; set; }

@@ -1,9 +1,6 @@
 .login
 {
-    width: 15%;
-    margin-top: 48px;
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
 }
 
 .login__image
@@ -14,4 +11,16 @@
 .text__orange
 {
     color: #FDB100;
+}
+
+.header__button
+{
+    margin: -10px 10px 0 5px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+
+    border: none;
+    background: none;
 }

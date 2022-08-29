@@ -8,7 +8,7 @@ namespace WebAPI.Converters
         public static Recipe ConvertRecipeFromDto( this RecipeDto recipeDto)
         {
             Recipe recipe = new Recipe();
-
+            recipe.Id = recipeDto.Id;
             recipe.Name = recipeDto.Name;
             recipe.CountPersons = recipeDto.CountPersons;
             recipe.TimeRemaining = recipeDto.TimeRemaining;
@@ -24,7 +24,7 @@ namespace WebAPI.Converters
         public static RecipeDto ConvertRecipeToDto(this Recipe recipe)
         {
             RecipeDto recipeDto = new RecipeDto();
-
+            recipeDto.Id = recipe.Id;
             recipeDto.Name = recipeDto.Name;
             recipeDto.CountPersons = recipe.CountPersons;
             recipeDto.TimeRemaining = recipe.TimeRemaining;

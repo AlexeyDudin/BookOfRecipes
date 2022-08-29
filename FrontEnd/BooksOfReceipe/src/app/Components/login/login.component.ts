@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,6 @@ export class LoginComponent implements OnInit {
   }
   
   openLoginDialog() {
-    this.dialog.open(LoginComponent);
+    this.dialog.open(UcLoginComponent);
   }
 }
