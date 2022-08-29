@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
             _userApiService = userApiService;
         }
 
-        [HttpPost, Route("")]
+        [HttpPost, Route("add")]
         public IActionResult CreateUser([FromBody] UserDto user)
         {
             return GetResponse(_userApiService.CreateUser(user));

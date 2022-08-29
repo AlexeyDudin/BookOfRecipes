@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { User } from 'src/app/Entityes/user';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-uclogin',
+  templateUrl: './uclogin.component.html',
+  styleUrls: ['./uclogin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class UcLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
+  user: User = {
+    Login: "",
+    Password: "",
+    Description: "",
+    Username: "",
+  };
 
   title = "Войдите в профиль";
   text = "Добавлять рецепты могут только зарегистрированные пользователи.";
@@ -33,5 +41,13 @@ export class LoginComponent implements OnInit {
     this.title = "Регистрация";
     this.isShowText = false;
     this.isShowRegisterPage = true;
+  }
+
+  loginPostClick() {
+
+  }
+
+  registerPostClick() {
+    let jwt = this.auth.createUser(this.user);
   }
 }
