@@ -10,6 +10,7 @@ namespace Infrastructure.Configuration
         {
             builder.ToTable(nameof(User));
             builder.HasKey(rsf => rsf.Id);
+            builder.HasIndex(r => r.Login).IsUnique(true);
             builder.Property(rsf => rsf.Id).HasColumnName("UserId");
         }
     }
