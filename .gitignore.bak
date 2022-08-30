@@ -362,6 +362,3 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /FrontEnd/BooksOfReceipe/.angular/cache/14.1.0
-
-# Angular output
-/WebAPI/wwwroot/
