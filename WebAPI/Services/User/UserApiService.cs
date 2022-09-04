@@ -24,6 +24,10 @@ namespace WebAPI.Services.User
             {
                 return new Result(JsonSerializer.Serialize(UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password, user.UserName, user.Description))), ResponseStatus.Ok);
             }
+            catch (ArgumentException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.UserIsNotUnique);
+            }
             catch (Exception ex)
             {
                 return new Result(ex.Message, ResponseStatus.Error);

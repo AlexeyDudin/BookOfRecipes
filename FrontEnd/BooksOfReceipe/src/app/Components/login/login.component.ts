@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { User } from 'src/app/Entityes/user';
 import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
 
 @Component({
@@ -9,6 +10,7 @@ import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
 })
 export class LoginComponent implements OnInit {
   loginSrc = "./assets/images/login.svg";
+  user = null;
 
   constructor(public dialog: MatDialog) { }
 

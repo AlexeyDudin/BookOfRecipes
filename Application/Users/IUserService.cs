@@ -11,5 +11,7 @@ namespace Application.Users
         User GetUser( string login );
         void ChangePassword(string login, string password);
         User SetUserInfo(string login, string password, string newUserName, string newDescription);
+
+        bool IsUserUnique(string login);
     }
 }

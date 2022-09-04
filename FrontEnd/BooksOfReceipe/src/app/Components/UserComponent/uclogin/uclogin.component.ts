@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { User } from 'src/app/Entityes/user';
@@ -12,12 +12,17 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class UcLoginComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
+
+  @Output() resultUser: any;
+
   public user: User = {
     Login: "AlexeyD93",
     Password: "1",
     Description: "",
     Username: "Alexey",
   };
+
+  public passwdConfirm: string = "";
 
   title = "Войдите в профиль";
   text = "Добавлять рецепты могут только зарегистрированные пользователи.";
@@ -48,6 +53,6 @@ export class UcLoginComponent implements OnInit {
   }
 
   registerPostClick() {
-    let jwt = this.auth.createUser(this.user);
+    this.resultUser = this.auth.createUser(this.user);
   }
 }

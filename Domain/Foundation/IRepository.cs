@@ -1,4 +1,5 @@
 ﻿using Domain.Models.Recipes;
+using Domain.Models.Users;
 using System.Collections;
 using System.Linq.Expressions;
 
