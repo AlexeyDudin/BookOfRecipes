@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         [HttpPost("login")]
         public IActionResult AuthenticateUser([FromBody] UserLoginDto userLoginDto)
         {
-            return GetResponse(_userApiService.Login(userLoginDto));
+            return GetResponse(_userApiService.CreateUser(userLoginDto));
         }
     }
 }

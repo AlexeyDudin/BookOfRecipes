@@ -1,4 +1,5 @@
 ﻿using Application.Users;
+using Application.Users.Exceptions;
 using System.Text.Json;
 using WebAPI.Converters;
 using WebAPI.Dto;
@@ -22,9 +23,12 @@ namespace WebAPI.Services.User
         {
             try
             {
-                return new Result(JsonSerializer.Serialize(UserConverter.ConvertUserToDto(_userService.CreateUser(user.Login, user.Password, user.UserName, user.Description))), ResponseStatus.Ok);
+                Domain.Models.Users.User createdUser = _userService.CreateUser(user.Login, user.Password, user.UserName, user.Description);
+                UserDto createdUserDto = createdUser.ConvertUserToDto();
+                string jsonSerializedString = JsonSerializer.Serialize(createdUserDto);
+                return new Result(CreateToken(new UserLoginDto { Login = user.Login, Password = user.Password }), ResponseStatus.Ok);
             }
-            catch (ArgumentException ex)
+            catch (UserCreateException ex)
             {
                 return new Result(ex.Message, ResponseStatus.UserIsNotUnique);
             }
@@ -85,7 +89,7 @@ namespace WebAPI.Services.User
             }
         }
 
-        public Result Login( UserLoginDto userLoginDto )
+        public Result CreateToken( UserLoginDto userLoginDto )
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using Domain.Foundation;
+﻿using Application.Users.Exceptions;
+using Domain.Foundation;
 using Domain.Models.Users;
 
 namespace Application.Users
@@ -45,7 +46,7 @@ namespace Application.Users
                 return user;
             }
             else
-                throw new ArgumentException("Такой пользователь уже существует");
+                throw new UserCreateException("Такой пользователь уже существует");
         }
 
         public User GetUserInfo(string login, string password)
