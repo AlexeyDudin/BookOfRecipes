@@ -16,7 +16,6 @@ namespace Infrastructure.Foundation
         private IRepository<User> _userRepository;
 
         public IRepository<Recipe> RecipeRepository { get { return _recipeRepository; } }
-
         public IRepository<User> UserRepository { get { return _userRepository; } }
 
         public UnitOfWork(TLRecipesDbContext dbContext)

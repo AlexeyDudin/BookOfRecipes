@@ -11,6 +11,7 @@ namespace Domain.Foundation
     public interface IUnitOfWork
     {
         public IRepository<Recipe> RecipeRepository { get; }
+
         public IRepository<User> UserRepository { get; }
 
         public void Commit();

@@ -38,7 +38,7 @@ namespace Application.Users
                 Description = description
             };
 
-            if (IsUserUnique(login))
+            if (CheckUserIsNotExist(login))
             {
 
                 _userRepository.Add(user);
@@ -46,7 +46,7 @@ namespace Application.Users
                 return user;
             }
             else
-                throw new UserCreateException("Такой пользователь уже существует");
+                throw new UserCreationException("Такой пользователь уже существует");
         }
 
         public User GetUserInfo(string login, string password)
@@ -78,7 +78,7 @@ namespace Application.Users
             return changedUser;
         }
 
-        public bool IsUserUnique(string login)
+        public bool CheckUserIsNotExist(string login)
         {
             User user = _unitOfWork.UserRepository.FirstOrDefault(user => user.Login == login);
             return user == null;

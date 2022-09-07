@@ -28,7 +28,7 @@ namespace WebAPI.Services.User
                 string jsonSerializedString = JsonSerializer.Serialize(createdUserDto);
                 return new Result(CreateToken(new UserLoginDto { Login = user.Login, Password = user.Password }), ResponseStatus.Ok);
             }
-            catch (UserCreateException ex)
+            catch (UserCreationException ex)
             {
                 return new Result(ex.Message, ResponseStatus.UserIsNotUnique);
             }
