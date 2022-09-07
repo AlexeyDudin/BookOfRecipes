@@ -1,17 +1,18 @@
-﻿using Domain.Foundation;
+﻿using Application.Users.Exceptions;
+using Domain.Foundation;
 using Domain.Models.Users;
 
 namespace Application.Users
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<User> _userRepository;
 
-        public UserService(IUserRepository unitOfWork)
+        public UserService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _userRepository = unitOfWork.Repository;
+            _userRepository = unitOfWork.UserRepository;
         }
 
         public void ChangePassword(string login, string password)
@@ -27,6 +28,8 @@ namespace Application.Users
 
         public User CreateUser(string login, string password, string username, string? description)
         {
+            //TODO Check unique login
+
             User user = new User
             {
                 Login = login,
@@ -35,9 +38,15 @@ namespace Application.Users
                 Description = description
             };
 
-            _userRepository.Add(user);
-            _unitOfWork.Commit();
-            return user;
+            if (CheckUserIsNotExist(login))
+            {
+
+                _userRepository.Add(user);
+                _unitOfWork.Commit();
+                return user;
+            }
+            else
+                throw new UserCreationException("Такой пользователь уже существует");
         }
 
         public User GetUserInfo(string login, string password)
@@ -67,6 +76,12 @@ namespace Application.Users
             //_userRepository.Change(changedUser, newUserInfo);
             _unitOfWork.Commit();
             return changedUser;
+        }
+
+        public bool CheckUserIsNotExist(string login)
+        {
+            User user = _unitOfWork.UserRepository.FirstOrDefault(user => user.Login == login);
+            return user == null;
         }
     }
 }

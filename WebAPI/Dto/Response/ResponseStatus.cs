@@ -4,6 +4,7 @@
     {
         Ok = 0,
         Error = 1,
-        UserNotFound = 2
+        UserNotFound = 2,
+        UserIsNotUnique = 3
     }
 }

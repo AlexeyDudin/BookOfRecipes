@@ -7,7 +7,7 @@ using WebAPI.Services.Recipe;
 namespace WebAPI.Controllers
 {
     [Authorize]
-    [Route("api/recipes")]
+    [Route("api/recipe")]
     public class RecipeController : BaseController
     {
         private readonly IRecipeApiService _recipeApiService;
@@ -17,13 +17,13 @@ namespace WebAPI.Controllers
             _recipeApiService = recipeApiService;
         }
 
-        [HttpPost, Route("create")]
+        [HttpPost, Route("")]
         public IActionResult AddRecipe([FromBody] RecipeDto recipeDto)
         {
             return GetResponse(_recipeApiService.AddRecipe(recipeDto));
         }
 
-        [HttpGet, Route("{user}")]
+        [HttpGet, Route("user")]
         public IActionResult GetUserRecipes([FromQuery] UserDto user)
         {
             return GetResponse(_recipeApiService.GetRecipeOfUser(user));
@@ -35,8 +35,8 @@ namespace WebAPI.Controllers
             return GetResponse(_recipeApiService.GetAllRecipes());
         }
 
-        [HttpPost, Route("change")]
-        public IActionResult ChangeRecipe([FromBody] RecipeDto recipeDto)
+        [HttpPost, Route("update")]
+        public IActionResult UpdateRecipe([FromBody] RecipeDto recipeDto)
         {
             return GetResponse(_recipeApiService.ChangeRecipe(recipeDto));
         }

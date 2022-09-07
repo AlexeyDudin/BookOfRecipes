@@ -9,7 +9,7 @@ namespace WebAPI.Services.User
         Result GetUserInfo(UserDto user);
         Result ChangeUserInfo(UserDto user);
         Result ChangePassword(UserDto user, string password);
-        Result Login( UserLoginDto userLoginDto );
+        Result CreateUser( UserLoginDto userLoginDto );
         Result GetAllUsers();
     }
 }

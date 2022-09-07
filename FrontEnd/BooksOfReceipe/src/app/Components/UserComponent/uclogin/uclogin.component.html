@@ -23,20 +23,20 @@
     <form class="authorize" *ngIf="isShowRegisterPage">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Имя</mat-label>
-            <input matInput placeholder="Введите имя" [value]="this.user.Username">
+            <input matInput placeholder="Введите имя" name="name" [(ngModel)]="this.user.Username">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Логин</mat-label>
-            <input matInput placeholder="Введите логин" [value]="this.user.Login">
+            <input matInput placeholder="Введите логин" name="login" [(ngModel)]="this.user.Login">
         </mat-form-field>
         <div class="registration__password">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Пароль</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [value]="this.user.Password">
+                <input matInput name="password" [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [(ngModel)]="this.user.Password">
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Повторите пароль</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" value="">
+                <input matInput name="checkPassword" [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [(ngModel)]="this.passwdConfirm">
             </mat-form-field>
         </div>
         <div class="login__buttons">

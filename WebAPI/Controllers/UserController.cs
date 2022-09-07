@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
+using WebAPI.Dto.Response;
 using WebAPI.Services.User;
 
 namespace WebAPI.Controllers
@@ -15,10 +16,10 @@ namespace WebAPI.Controllers
             _userApiService = userApiService;
         }
 
-        [HttpPost, Route("add")]
+        [HttpPost, Route("")]
         public IActionResult CreateUser([FromBody] UserDto user)
         {
-            return GetResponse(_userApiService.CreateUser(user));
+            return GetResponse(_userApiService.CreateUser(new UserLoginDto() { Login = user.Login, Password = user.Password })) ;
         }
 
         [HttpGet, Route("")]
@@ -35,7 +36,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost, Route("update")]
-        public IActionResult SetUserInfo([FromBody] UserDto user)
+        public IActionResult UpdateUser([FromBody] UserDto user)
         {
             return GetResponse(_userApiService.ChangeUserInfo(user));
         }
@@ -44,12 +45,6 @@ namespace WebAPI.Controllers
         public IActionResult ChangeUserPassword([FromBody] UserDto user)
         {
             return GetResponse(_userApiService.ChangePassword(user, user.Password));
-        }
-
-        [HttpPost( "login" )]
-        public IActionResult GetToken( [FromBody] UserLoginDto userLoginDto )
-        {
-            return GetResponse( _userApiService.Login( userLoginDto ) );
         }
     }
 }
