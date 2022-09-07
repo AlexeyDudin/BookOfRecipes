@@ -10,7 +10,11 @@ export class SearchTagComponent implements OnInit {
 
   constructor() { }
 
-  @Input() tag: TagClass = {text:''};
+  @Input() tag: any;
+
+  initialize() {
+    this.tag = null;
+  }
 
   ngOnInit(): void {
   }

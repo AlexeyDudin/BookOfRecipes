@@ -11,14 +11,14 @@ export class SmartInfoCardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() card: SmartInfoCard = 
-  {
-     title: "",
-     text: "",
-     imagePath: "" 
-  };
+  @Input() card: any;
+
+  initialize() {
+    this.card = null;
+  }
 
   ngOnInit(): void {
+    this.initialize();
   }
 
 }

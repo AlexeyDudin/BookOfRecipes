@@ -12,35 +12,17 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
     
    }
 
-  starImage = "./asset/";
+  starImage!: string;
 
-  // recipe: Recipe = 
-  // {
-  //     title: "",
-  //     text: "",
-  //     imagePath: "",
-  //     likeCount: 0,
-  //     timer: 0,
-  //     persons: 0,
-  //     tags: [],
-  // };
+  @Input() recipe: any;
 
-  @Input() recipe: Recipe = {
-    id: 0,
-    title: "",
-    text: "",
-    imagePath: "",
-    likeCount: 0,
-    timer: 0,
-    persons: 0,
-    tags: [
-        {
-            text : ""
-        }],
-    ingridients:[],
-    step:[]
+  initialize() {
+    this.recipe = null;
+    this.starImage = "./asset/";
   }
+
   ngOnInit(): void {
+    this.initialize();
   }
 
 }

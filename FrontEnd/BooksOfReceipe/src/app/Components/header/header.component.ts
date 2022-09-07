@@ -10,12 +10,18 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
 
-  logoSrc = "./assets/images/Recipes.svg";
-  loginSrc = "./assets/images/login.svg";
+  logoSrc!:string;
+  loginSrc!:string;
 
   constructor(public dialog: MatDialog) { }
   
+  initialize() {
+    this.logoSrc = "./assets/images/Recipes.svg";
+    this.loginSrc = "./assets/images/login.svg";
+  }
+
   ngOnInit(): void {
+    this.initialize();
   }
   
   openDialog() {

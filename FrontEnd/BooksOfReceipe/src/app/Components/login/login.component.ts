@@ -9,12 +9,18 @@ import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginSrc = "./assets/images/login.svg";
-  user = null;
+  loginSrc!: string;
+  user: any;
 
   constructor(public dialog: MatDialog) { }
 
+  initialize() {
+    this.loginSrc = "./assets/images/login.svg";
+    this.user = null;
+  }
+
   ngOnInit(): void {
+    this.initialize();
   }
   
   openLoginDialog() {
