@@ -15,25 +15,41 @@ export class UcLoginComponent implements OnInit {
 
   @Output() resultUser: any;
 
-  public user: User = {
-    Login: "AlexeyD93",
-    Password: "1",
-    Description: "",
-    Username: "Alexey",
-  };
+  public user!: User;
 
   public passwdConfirm: string = "";
 
-  title = "Войдите в профиль";
-  text = "Добавлять рецепты могут только зарегистрированные пользователи.";
-  isShowText:boolean = true;
-  isShowLoginPage: boolean = false;
-  isShowRegisterPage: boolean = false;
-  hide = true;
+  title!: string;
+  text!: string;
+  isShowText!:boolean;
+  isShowLoginPage!: boolean;
+  isShowRegisterPage!: boolean;
+  hide!:boolean;
 
   closeCross = "./assets/images/CloseCross.svg"
 
+  initialize(): void {
+    this.user = {
+      Login: "",
+      Password: "",
+      Description: "",
+      Username: "",
+    };
+  
+    this.passwdConfirm = "";
+  
+    this.title = "Войдите в профиль";
+    this.text = "Добавлять рецепты могут только зарегистрированные пользователи.";
+    this.isShowText = true;
+    this.isShowLoginPage = false;
+    this.isShowRegisterPage = false;
+    this.hide = true;
+  
+    this.closeCross = "./assets/images/CloseCross.svg"
+  }
+
   ngOnInit(): void {
+    this.initialize();
   }
 
   loginClick() {

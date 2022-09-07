@@ -9,9 +9,14 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
-  logoSrc = "./assets/images/Recipes.svg";
+  logoSrc!: string;
+
+  initialize() {
+    this.logoSrc= "./assets/images/Recipes.svg"
+  }
 
   ngOnInit(): void {
+    this.initialize();
   }
 
 }
