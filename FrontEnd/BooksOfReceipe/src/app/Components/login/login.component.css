@@ -24,3 +24,7 @@
     border: none;
     background: none;
 }
+
+.user_login {
+    display: inline-flex;
+}

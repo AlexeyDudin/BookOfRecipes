@@ -17,15 +17,15 @@ export class EditRecipeComponent implements OnInit {
       id: 0,
       title: "first",
       text: "first text",
-      imagePath: "",
+      imagePath: "./assets/images/Test.png",
       likeCount: 0,
       timer: 0,
       persons: 0,
       tags:  [{text : "Hello"}],
-      ingridients:[],
+      ingridients:[ {text:"Test1", count:10, typeOfCount:"мл"}],
       step:[
         { count:1, description: "Проверка"},
-        {count:2, description: "Тест"}
+        { count:2, description: "Тест"}
       ],
   }
 

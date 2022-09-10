@@ -6,10 +6,10 @@ namespace WebAPI.Services.User
     public interface IUserApiService
     {
         Result CreateUser(UserDto user);
+        Result Login(UserDto user);
         Result GetUserInfo(UserDto user);
         Result ChangeUserInfo(UserDto user);
         Result ChangePassword(UserDto user, string password);
-        Result CreateUser( UserLoginDto userLoginDto );
         Result GetAllUsers();
     }
 }

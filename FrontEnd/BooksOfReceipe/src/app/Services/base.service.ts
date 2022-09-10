@@ -7,12 +7,18 @@ import { Injectable } from '@angular/core';
 export class BaseService {
   host: string = "https://localhost:7119";
 
+  result: any;
+
   constructor(private http: HttpClient) { }
 
-  sendPost(routing: string, obj: any) {
-    let result;
-    this.http.post(this.host + routing, obj, {responseType: "json"}).subscribe(data => {result = data});
-    return result 
+  sendPost(routing: string, obj: any):any {
+    this.http.post<any>(this.host + routing, obj, {responseType: "json"}).subscribe({
+      next: data => {this.result = data},
+      error: error => {
+        console.error(error);
+      }
+    });
+    return this.result; 
   }
 
   sendGet() {

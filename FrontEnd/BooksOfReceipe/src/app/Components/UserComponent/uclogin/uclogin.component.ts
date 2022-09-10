@@ -30,12 +30,11 @@ export class UcLoginComponent implements OnInit {
 
   initialize(): void {
     this.user = {
-      Login: "",
-      Password: "",
-      Description: "",
-      Username: "",
-    };
-  
+      Login:"",
+      Description:"",
+      Password:"",
+      Username:""
+    }
     this.passwdConfirm = "";
   
     this.title = "Войдите в профиль";
@@ -65,8 +64,9 @@ export class UcLoginComponent implements OnInit {
   }
 
   loginPostClick() {
-
+    this.resultUser = this.auth.authorize(this.user);
   }
+
 
   registerPostClick() {
     this.resultUser = this.auth.createUser(this.user);

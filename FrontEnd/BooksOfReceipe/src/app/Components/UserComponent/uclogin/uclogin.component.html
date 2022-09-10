@@ -9,11 +9,11 @@
     <form class="authorize" *ngIf="isShowLoginPage">
         <mat-form-field class="example-full-width input_field" appearance="fill">
             <mat-label>Логин</mat-label>
-            <input matInput placeholder="Введите логин" value="">
+            <input matInput placeholder="Введите логин" name="login" [(ngModel)]="this.user.Login">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Пароль</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" value="">
+            <input matInput [type]="hide ? 'password' : 'text'" name="password" placeholder="Введите пароль" [(ngModel)]="this.user.Password">
         </mat-form-field>
         <div class="login__buttons">
             <button class="login__button__auth" (click)="loginPostClick()">Войти</button>

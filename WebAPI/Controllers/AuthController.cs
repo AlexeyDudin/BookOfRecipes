@@ -17,9 +17,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Authenticate([FromBody] UserLoginDto userLoginDto)
+        public IActionResult Authenticate([FromBody] UserDto userLoginDto)
         {
-            return GetResponse(_userApiService.CreateUser(userLoginDto));
+            return GetResponse(_userApiService.Login(userLoginDto));
         }
     }
 }
