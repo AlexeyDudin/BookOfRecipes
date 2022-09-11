@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  initialize() {
-    this.loginSrc = "./assets/images/login.svg";
+  initUser() {
     let memoryInfo = localStorage.getItem("recipeBookUser");
     if (!(memoryInfo === null || memoryInfo === "undefined"))
     {
@@ -44,6 +43,11 @@ export class LoginComponent implements OnInit {
       this.user = null;
   }
 
+  initialize() {
+    this.loginSrc = "./assets/images/login.svg";
+    this.initUser();
+  }
+
   ngOnInit(): void {
     this.initialize();
   }
@@ -52,10 +56,15 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem("recipeBookUser");
     this.user = null;
   }
+
+  saveToStorage(storageInfo: any) {
+    localStorage.setItem("recipeBookUser", storageInfo);
+  }
   
   openLoginDialog() {
     let result = this.dialog.open(UcLoginComponent);
-    localStorage.setItem("recipeBookUser", result.componentInstance.resultUser);
+    result.beforeClosed().subscribe(result => {this.saveToStorage(result.componentInstance.resultUser); this.initUser()});
+    
     //TODO
     //localStorage.setItem("recipeBookUser", resultUser);
   }

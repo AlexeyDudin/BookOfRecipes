@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/Entityes/user';
 import { AuthService } from 'src/app/Services/auth.service';
 
@@ -63,12 +64,14 @@ export class UcLoginComponent implements OnInit {
     this.isShowRegisterPage = true;
   }
 
-  loginPostClick() {
-    this.resultUser = this.auth.authorize(this.user);
+  loginPostClick():Observable<any> {
+    const request = this.auth.authorize(this.user);
+    request.subscribe(res => {this.resultUser = res.content;});
+    return request;
   }
 
 
   registerPostClick() {
-    this.resultUser = this.auth.createUser(this.user);
+    this.auth.createUser(this.user).subscribe(res => {this.resultUser = res});
   }
 }
