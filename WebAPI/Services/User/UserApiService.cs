@@ -89,17 +89,17 @@ namespace WebAPI.Services.User
             }
         }
 
-        public Result CreateToken( UserLoginDto userLoginDto )
+        public string CreateToken( UserLoginDto userLoginDto )
         {
             try
             {
                 string token = _tokenService.GenerateToken( userLoginDto );
                 ResponseStatus responseStatus = string.IsNullOrEmpty( token ) ? ResponseStatus.UserNotFound : ResponseStatus.Ok;
-                return new Result(token, responseStatus);  
+                return token;  
             }
             catch ( Exception ex )
             {
-                return new Result( ex.Message, ResponseStatus.Error );
+                throw new CreateTokenException(ex.Message);
             }
         }
 
@@ -115,6 +115,10 @@ namespace WebAPI.Services.User
             catch (UserAuthException ex)
             {
                 return new Result(ex.Message, ResponseStatus.UserNotFound);
+            }
+            catch (CreateTokenException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
             }
             catch (Exception ex)
             {

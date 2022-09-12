@@ -1,9 +1,11 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Inject, OnInit, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/Entityes/user';
 import { AuthService } from 'src/app/Services/auth.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-uclogin',
@@ -12,9 +14,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class UcLoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
-
-  @Output() resultUser: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {loginComponent: LoginComponent}, private auth: AuthService) { }
 
   public user!: User;
 
@@ -66,12 +66,11 @@ export class UcLoginComponent implements OnInit {
 
   loginPostClick():Observable<any> {
     const request = this.auth.authorize(this.user);
-    request.subscribe(res => {this.resultUser = res.content;});
+    request.subscribe(res => {this.data.loginComponent.onChangeUser(res.content)});
     return request;
   }
 
-
   registerPostClick() {
-    this.auth.createUser(this.user).subscribe(res => {this.resultUser = res});
+    this.auth.createUser(this.user).subscribe(res => {this.data.loginComponent.onChangeUser(res.content)});
   }
 }

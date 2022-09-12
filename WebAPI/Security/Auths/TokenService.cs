@@ -33,9 +33,10 @@ namespace WebAPI.Security.Auths
 
             List<Claim> authClaims = new()
             {
-                new( ClaimTypes.Name, user.UserName ),
+                new( "userName", user.UserName),
+                new( "login", user.Login ),
                 new( JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString() ),
-                new( ClaimTypes.Role, UserRole.User )
+                new( "role", UserRole.User )
             };
 
             JwtSecurityToken token = GetToken( authClaims );

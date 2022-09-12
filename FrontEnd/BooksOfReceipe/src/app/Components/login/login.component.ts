@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class LoginComponent implements OnInit {
   loginSrc!: string;
-  user: any;
+  user: User | null = null;
 
   constructor(public dialog: MatDialog) { }
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     if (!(memoryInfo === null || memoryInfo === "undefined"))
     {
       const tokenInfo = this.getDecodedAccessToken(memoryInfo);
-      var currentTimeInMilliseconds=Date.now();
+      var currentTimeInMilliseconds=(Date.now() / 1000);
       const expireDate = tokenInfo.exp;
       if (currentTimeInMilliseconds > expireDate)
       {
@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
         return;
       }
       this.user = new User(); 
-      this.user.Login = tokenInfo.name;
+      this.user.Login = tokenInfo.login;
+      this.user.Username = tokenInfo.userName;
     }
     else
       this.user = null;
@@ -57,12 +58,19 @@ export class LoginComponent implements OnInit {
     this.user = null;
   }
 
-  saveToStorage(storageInfo: any) {
+  saveToStorage(storageInfo: string) {
     localStorage.setItem("recipeBookUser", storageInfo);
+  }
+
+  onChangeUser(user: string) {
+    localStorage.setItem("recipeBookUser", user);
+    this.initUser();
   }
   
   openLoginDialog() {
-    let result = this.dialog.open(UcLoginComponent);
+    let result = this.dialog.open(UcLoginComponent, {
+      data: { loginComponent: this},
+    });
     result.beforeClosed().subscribe(result => {this.saveToStorage(result.componentInstance.resultUser); this.initUser()});
     
     //TODO
