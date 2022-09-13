@@ -52,6 +52,11 @@ namespace Application.Recipes
             return (List<Recipe>)_recipeService.GetAll().Where(r => r.Name.Contains(name));
         }
 
+        public Recipe GetRecypeById(long id)
+        {
+            return _recipeService.FirstOrDefault(r => r.Id == id);
+        }
+
         public Recipe GetTopRecipe()
         {
             return _recipeService.GetAll().OrderByDescending(r => r.Likes.Result).FirstOrDefault();

@@ -82,5 +82,17 @@ namespace WebAPI.Services.Recipe
                 return new Result(ex.Message, ResponseStatus.Error);
             }
         }
+
+        public Result GetRecypeById(long id)
+        {
+            try
+            {
+                return new Result(_recipeService.GetRecypeById(id), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
+        }
     }
 }

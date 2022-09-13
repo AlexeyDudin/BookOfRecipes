@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/Entityes/Recipe';
+import { User } from 'src/app/Entityes/user';
 
 @Component({
   selector: 'app-recipes',
@@ -22,7 +23,10 @@ export class RecipesComponent implements OnInit {
       id: 1,
       title: "first",
       text: "first text",
-      imagePath: "./assets/images/Test.png",
+      owner: new User(),
+      imagePath: {
+        url:"./assets/images/Test.png", name:"",
+      },
       likeCount: 0,
       timer: 0,
       persons: 0,
@@ -37,7 +41,10 @@ export class RecipesComponent implements OnInit {
       id:2,
       title: "second",
       text: "first text",
-      imagePath: "./assets/images/Test.png",
+      owner: new User(),
+      imagePath: {
+        url:"./assets/images/Test.png", name:"",
+      },
       likeCount: 0,
       timer: 0,
       persons: 0,

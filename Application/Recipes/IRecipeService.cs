@@ -12,5 +12,7 @@ namespace Application.Recipes
         List<Recipe> GetAllRecipes();
         Recipe GetTopRecipe();
         List<Recipe> GetAllRecipesOfUser(User user);
+
+        Recipe GetRecypeById(long id);
     }
 }

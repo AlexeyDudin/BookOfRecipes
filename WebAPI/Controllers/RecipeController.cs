@@ -47,5 +47,11 @@ namespace WebAPI.Controllers
         {
             return GetResponse(_recipeApiService.GetTopRecipe());
         }
+
+        [HttpPost, Route("byId")]
+        public IActionResult GetRecipeById([FromBody] RecipeDto recipeDto)
+        {
+            return GetResponse(_recipeApiService.GetRecypeById(recipeDto.Id));
+        }
     }
 }
