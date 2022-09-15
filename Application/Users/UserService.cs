@@ -51,7 +51,10 @@ namespace Application.Users
 
         public User GetUserInfo(string login, string password)
         {
-            return _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
+            User user = _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
+            if (user == null)
+                throw new UserAuthException("Не найден пользователь с таким логином и паролем");
+            return user;
         }
 
         public User GetUser( string login )

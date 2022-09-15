@@ -1,10 +1,12 @@
 ﻿using Application.Users;
 using Application.Users.Exceptions;
+using WebAPI.Exceptions;
 using System.Text.Json;
 using WebAPI.Converters;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
 using WebAPI.Security.Auths;
+using WebAPI.Exceptions;
 
 namespace WebAPI.Services.User
 {

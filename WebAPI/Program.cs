@@ -101,9 +101,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 DefaultFilesOptions options = new DefaultFilesOptions();
-options.DefaultFileNames.Clear(); // удаляем имена файлов по умолчанию
-options.DefaultFileNames.Add("index.html"); // добавляем новое имя файла
-app.UseDefaultFiles(options); // установка параметров
+options.DefaultFileNames.Clear(); 
+options.DefaultFileNames.Add("index.html"); 
+app.UseDefaultFiles(options); 
 app.UseStaticFiles();
 
 app.Run();

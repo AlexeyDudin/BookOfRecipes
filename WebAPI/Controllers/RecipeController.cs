@@ -48,6 +48,7 @@ namespace WebAPI.Controllers
             return GetResponse(_recipeApiService.GetTopRecipe());
         }
 
+        [AllowAnonymous]
         [HttpPost, Route("byId")]
         public IActionResult GetRecipeById([FromBody] RecipeDto recipeDto)
         {

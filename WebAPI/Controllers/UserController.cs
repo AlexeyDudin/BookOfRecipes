@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         [HttpPost, Route("")]
         public IActionResult CreateUser([FromBody] UserDto user)
         {
-            return GetResponse(_userApiService.CreateUser(new UserDto() { Login = user.Login, Password = user.Password })) ;
+            return GetResponse(_userApiService.CreateUser(user)) ;
         }
 
         [HttpGet, Route("")]
