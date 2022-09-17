@@ -1,4 +1,4 @@
-<div class="recipe">
+<div class="recipe" *ngIf="recipe === null">
     <div class="back_button">
         <div class="back_button__arrow">
             <img src="./assets/images/Left.svg"/>
@@ -6,7 +6,7 @@
         <div class="back_button__text">Назад</div>
     </div>
     <div class="recipe__header">
-        <div class="header__title">{{recipe.title}}</div>
+        <div class="header__title">[(ngModel)]="this.recipe.title</div>
         <div class="header__buttons">
             <div class="button__remove">
                 <img src="./assets/images/Recycle.svg"/>
@@ -24,10 +24,10 @@
     <div class="recipe__ingridients_and_steps">
         <div class="recipe__ingridients">
             <div>Ингридиенты</div>
-            <div class="ingridient" *ngFor="let ingridient of recipe.ingridients">{{ingridient.text}}</div>
+            <!-- <div class="ingridient" *ngFor="let ingridient of this.recipe.ingridients">{{ingridient.text}}</div> -->
         </div>
         <div class="recipe__steps">
-            <div class="step" *ngFor="let step of recipe.step">{{step.description}}</div>
+            <!-- <div class="step" *ngFor="let step of recipe.step">{{step.description}}</div> -->
             <div class="end_text">Приятного аппетита</div>
         </div>
     </div>

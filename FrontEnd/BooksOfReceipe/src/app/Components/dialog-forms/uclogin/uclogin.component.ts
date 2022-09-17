@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { AppSettings } from 'src/app/constants';
 import { User } from 'src/app/Entityes/user';
 import { AuthService } from 'src/app/Services/auth.service';
 import { LoginComponent } from '../../login/login.component';
@@ -14,7 +15,7 @@ import { LoginComponent } from '../../login/login.component';
 })
 export class UcLoginComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {loginComponent: LoginComponent}, private auth: AuthService) { }
+  constructor(private auth: AuthService, public dialog: MatDialog) { }
 
   public user!: User;
 
@@ -52,6 +53,10 @@ export class UcLoginComponent implements OnInit {
     this.initialize();
   }
 
+  saveToStorage(storageInfo: string) {
+    localStorage.setItem(AppSettings.localStorageKey, storageInfo);
+  }
+
   loginClick() {
     this.title = "Войти";
     this.isShowText = false;
@@ -64,13 +69,11 @@ export class UcLoginComponent implements OnInit {
     this.isShowRegisterPage = true;
   }
 
-  loginPostClick():Observable<any> {
-    const request = this.auth.authorize(this.user);
-    request.subscribe(res => {this.data.loginComponent.onChangeUser(res.content)});
-    return request;
+  loginPostClick() {
+    this.auth.authorize(this.user).subscribe(res => {this.saveToStorage(res.content); this.dialog.closeAll()});
   }
 
   registerPostClick() {
-    this.auth.createUser(this.user).subscribe(res => {this.data.loginComponent.onChangeUser(res.content)});
+    this.auth.createUser(this.user).subscribe(res => {this.saveToStorage(res.content); this.dialog.closeAll()});
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
+import { UcLoginComponent } from '../dialog-forms/uclogin/uclogin.component';
 import { LoginComponent } from '../login/login.component';
 
 @Component({

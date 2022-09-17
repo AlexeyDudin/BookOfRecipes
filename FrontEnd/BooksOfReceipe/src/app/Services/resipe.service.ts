@@ -10,8 +10,8 @@ export class ResipeService {
 
   constructor(private baseService: BaseService) { }
 
-  getRecypeById(recipe: Recipe) {
-    return this.baseService.sendPost('/api/recipe/byId', recipe);
+  getRecypeById(recipeId: number) {
+    return this.baseService.sendPost('/api/recipe/byId', recipeId);
   }
 
   getUserRecypes(user: User) {

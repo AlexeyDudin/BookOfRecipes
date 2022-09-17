@@ -50,9 +50,9 @@ namespace WebAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost, Route("byId")]
-        public IActionResult GetRecipeById([FromBody] RecipeDto recipeDto)
+        public IActionResult GetRecipeById([FromBody] long recipeId)
         {
-            return GetResponse(_recipeApiService.GetRecypeById(recipeDto.Id));
+            return GetResponse(_recipeApiService.GetRecypeById(recipeId));
         }
     }
 }

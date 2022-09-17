@@ -3,6 +3,7 @@ using WebAPI.Dto.Recipes;
 using WebAPI.Dto.Response;
 using Application.Recipes;
 using WebAPI.Converters;
+using Application.Users.Exceptions;
 
 namespace WebAPI.Services.Recipe
 {
@@ -88,6 +89,10 @@ namespace WebAPI.Services.Recipe
             try
             {
                 return new Result(_recipeService.GetRecypeById(id), ResponseStatus.Ok);
+            }
+            catch (RecipeNotFoundException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.RecipeNotFound);
             }
             catch (Exception ex)
             {

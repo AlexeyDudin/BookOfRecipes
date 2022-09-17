@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { User } from 'src/app/Entityes/user';
-import { UcLoginComponent } from '../UserComponent/uclogin/uclogin.component';
+import { UcLoginComponent } from '../dialog-forms/uclogin/uclogin.component';
 import jwt_decode from 'jwt-decode';
+import { AppSettings } from 'src/app/constants';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   initUser() {
-    let memoryInfo = localStorage.getItem("recipeBookUser");
+    let memoryInfo = localStorage.getItem(AppSettings.localStorageKey);
     if (!(memoryInfo === null || memoryInfo === "undefined"))
     {
       const tokenInfo = this.getDecodedAccessToken(memoryInfo);
@@ -32,13 +33,13 @@ export class LoginComponent implements OnInit {
       const expireDate = tokenInfo.exp;
       if (currentTimeInMilliseconds > expireDate)
       {
-        localStorage.removeItem("recipeBookUser");
+        localStorage.removeItem(AppSettings.localStorageKey);
         this.user = null;
         return;
       }
       this.user = new User(); 
       this.user.Login = tokenInfo.login;
-      this.user.Username = tokenInfo.userName;
+      this.user.Username = tokenInfo.username;
     }
     else
       this.user = null;
@@ -54,26 +55,23 @@ export class LoginComponent implements OnInit {
   }
 
   unLoginUser() {
-    localStorage.removeItem("recipeBookUser");
+    localStorage.removeItem(AppSettings.localStorageKey);
     this.user = null;
   }
 
-  saveToStorage(storageInfo: string) {
-    localStorage.setItem("recipeBookUser", storageInfo);
-  }
-
   onChangeUser(user: string) {
-    localStorage.setItem("recipeBookUser", user);
+    localStorage.setItem(AppSettings.localStorageKey, user);
     this.initUser();
   }
   
   openLoginDialog() {
-    let result = this.dialog.open(UcLoginComponent, {
-      data: { loginComponent: this},
-    });
-    result.beforeClosed().subscribe(result => {this.saveToStorage(result.componentInstance.resultUser); this.initUser()});
+    // let result = this.dialog.open(UcLoginComponent, {
+    //   data: { loginComponent: this},
+    // });
+    let result = this.dialog.open(UcLoginComponent);
+    result.afterClosed().subscribe(() => {this.initUser()});
     
     //TODO
-    //localStorage.setItem("recipeBookUser", resultUser);
+    //localStorage.setItem(AppSettings.localStorageKey, resultUser);
   }
 }

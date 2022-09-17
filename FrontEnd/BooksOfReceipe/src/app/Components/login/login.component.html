@@ -4,7 +4,7 @@
     </div>
     <button mat-button class="header__button text__orange" *ngIf="user === null" (click)="openLoginDialog()">Войти</button>
     <div class="user_login text__login text__orange" *ngIf="user !== null">
-        <div>{{user.Username}}</div>
+        <div>{{user?.Username}}</div>
         <img src="./assets/images/Delimiter.svg"/>
         <img src="./assets/images/ExitButton.svg" (click)="unLoginUser()"/>
     </div>

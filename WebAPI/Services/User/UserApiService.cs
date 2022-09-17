@@ -6,7 +6,6 @@ using WebAPI.Converters;
 using WebAPI.Dto;
 using WebAPI.Dto.Response;
 using WebAPI.Security.Auths;
-using WebAPI.Exceptions;
 
 namespace WebAPI.Services.User
 {
@@ -112,7 +111,7 @@ namespace WebAPI.Services.User
                 Domain.Models.Users.User findedUser = _userService.GetUserInfo(user.Login, user.Password);
                 UserDto findedUserDto = findedUser.ConvertUserToDto();
                 string jsonSerializedString = JsonSerializer.Serialize(findedUserDto);
-                return new Result(CreateToken(new UserLoginDto { Login = user.Login, Password = user.Password }), ResponseStatus.Ok);
+                return new Result(CreateToken(new UserLoginDto { Login = user.Login, Password = user.Password}), ResponseStatus.Ok);
             }
             catch (UserAuthException ex)
             {

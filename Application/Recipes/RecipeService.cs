@@ -1,4 +1,5 @@
-﻿using Domain.Foundation;
+﻿using Application.Users.Exceptions;
+using Domain.Foundation;
 using Domain.Models.Recipes;
 using Domain.Models.Users;
 
@@ -24,8 +25,8 @@ namespace Application.Recipes
 
         public Recipe ChangeRecipe(Recipe recipe)
         {
-            Recipe changedRecipe = _recipeService.FirstOrDefault(e => (e.Owner == recipe.Owner && e.Name == recipe.Name));
-            changedRecipe.ShortInfo = recipe.ShortInfo;
+            Recipe changedRecipe = _recipeService.FirstOrDefault(e => (e.Owner == recipe.Owner && e.Title == recipe.Title));
+            changedRecipe.DescriptionText = recipe.DescriptionText;
             changedRecipe.TimeRemaining = recipe.TimeRemaining;
             changedRecipe.RecipeTags = recipe.RecipeTags;
             changedRecipe.Steps = recipe.Steps;
@@ -49,12 +50,15 @@ namespace Application.Recipes
 
         public List<Recipe> GetByContainigName(string name)
         {
-            return (List<Recipe>)_recipeService.GetAll().Where(r => r.Name.Contains(name));
+            return (List<Recipe>)_recipeService.GetAll().Where(r => r.Title.Contains(name));
         }
 
         public Recipe GetRecypeById(long id)
         {
-            return _recipeService.FirstOrDefault(r => r.Id == id);
+            Recipe findedRecipe = _recipeService.FirstOrDefault(r => r.Id == id);
+            if (findedRecipe == null)
+                throw new RecipeNotFoundException("Рецепт не найден");
+            return findedRecipe;
         }
 
         public Recipe GetTopRecipe()
