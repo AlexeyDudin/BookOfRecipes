@@ -43,7 +43,7 @@ namespace Application.Recipes
 
         public List<Recipe> GetAllRecipesOfUser(User user)
         {
-            return (List<Recipe>)_unitOfWork.RecipeRepository.GetAll().Where(r => r.Owner == user);
+            return (List<Recipe>)_unitOfWork.RecipeRepository.Where(r => r.Owner == user);
         }
 
         public List<Recipe> GetByContainigName(string name)

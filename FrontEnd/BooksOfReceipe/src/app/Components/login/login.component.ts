@@ -37,4 +37,8 @@ export class LoginComponent implements OnInit {
     let result = this.dialog.open(UcLoginComponent);
     result.afterClosed().subscribe(() => {this.initUser()});
   }
+
+  isUserAuthorized(): boolean {
+    return this.storage.getUserFromStorage() !== null;
+  }
 }

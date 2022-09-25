@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginComponent } from 'src/app/Components/login/login.component';
 import { IngridientClass } from 'src/app/Entityes/IngridientClass';
 import { Recipe } from 'src/app/Entityes/Recipe';
+import { User } from 'src/app/Entityes/user';
 import { ResipeService } from 'src/app/Services/resipe.service';
+import { StorageService } from 'src/app/Services/storage.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -15,15 +18,16 @@ export class AddRecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
 
-  constructor(private route: ActivatedRoute, private recipeService: ResipeService) { }
+  constructor(private route: ActivatedRoute, private recipeService: ResipeService, public login: LoginComponent) { }
 
   ngOnInit(): void {
-
+    this.checkOnUserLogin();
     this.initialize();
   }
 
   checkOnUserLogin(): void {
-    
+    if (!this.login.isUserAuthorized())
+      this.login.openLoginDialog();
   }
   
   initialize(): void {

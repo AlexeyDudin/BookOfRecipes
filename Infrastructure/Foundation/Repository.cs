@@ -37,7 +37,7 @@ namespace Infrastructure.Foundation
         }
         public List<T> Where(Expression<Func<T, bool>> predicate)
         {
-            return predicate != null ? (List<T>)Entities.Where(predicate) : new List<T>();
+            return predicate != null ? Entities.Where(predicate).ToList() : new List<T>();
         }
     }
 }

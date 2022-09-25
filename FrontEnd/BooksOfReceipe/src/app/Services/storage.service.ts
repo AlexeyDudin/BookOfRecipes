@@ -15,7 +15,7 @@ export class StorageService {
     localStorage.setItem(AppSettings.localStorageKey, storageInfo);
   }
 
-  getDecodedAccessToken(token: string): any {
+  private getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
     } catch(Error) {
