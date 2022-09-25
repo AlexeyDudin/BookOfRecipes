@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { AppSettings } from 'src/app/constants';
 import { User } from 'src/app/Entityes/user';
 import { AuthService } from 'src/app/Services/auth.service';
+import { StorageService } from 'src/app/Services/storage.service';
 import { LoginComponent } from '../../login/login.component';
 
 @Component({
@@ -15,7 +16,7 @@ import { LoginComponent } from '../../login/login.component';
 })
 export class UcLoginComponent implements OnInit {
 
-  constructor(private auth: AuthService, public dialog: MatDialog) { }
+  constructor(private auth: AuthService, public dialog: MatDialog, private storage:StorageService) { }
 
   public user!: User;
 
@@ -53,10 +54,6 @@ export class UcLoginComponent implements OnInit {
     this.initialize();
   }
 
-  saveToStorage(storageInfo: string) {
-    localStorage.setItem(AppSettings.localStorageKey, storageInfo);
-  }
-
   loginClick() {
     this.title = "Войти";
     this.isShowText = false;
@@ -70,10 +67,10 @@ export class UcLoginComponent implements OnInit {
   }
 
   loginPostClick() {
-    this.auth.authorize(this.user).subscribe(res => {this.saveToStorage(res.content); this.dialog.closeAll()});
+    this.auth.authorize(this.user).subscribe(res => {this.storage.saveToStorage(res.content); this.dialog.closeAll()});
   }
 
   registerPostClick() {
-    this.auth.createUser(this.user).subscribe(res => {this.saveToStorage(res.content); this.dialog.closeAll()});
+    this.auth.createUser(this.user).subscribe(res => {this.storage.saveToStorage(res.content); this.dialog.closeAll()});
   }
 }

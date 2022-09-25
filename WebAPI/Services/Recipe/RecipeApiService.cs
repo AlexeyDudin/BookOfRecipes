@@ -3,7 +3,7 @@ using WebAPI.Dto.Recipes;
 using WebAPI.Dto.Response;
 using Application.Recipes;
 using WebAPI.Converters;
-using Application.Users.Exceptions;
+using Application.Recipes.Exceptions;
 
 namespace WebAPI.Services.Recipe
 {

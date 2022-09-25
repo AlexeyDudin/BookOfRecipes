@@ -27,8 +27,10 @@ import { RecipesComponent } from './Pages/recipes/recipes.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info-card/expanded-smart-info-card.component';
 import { StepComponent } from './Components/step/step.component';
-import { EditRecipeComponent } from './Pages/edit-recipe/edit-recipe.component';
+import { ViewRecipeComponent } from './Pages/view-recipe/view-recipe.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddRecipeComponent } from './Pages/add-recipe/add-recipe.component';
+import { IngridientComponent } from './Components/ingridient/ingridient.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { HttpClientModule } from '@angular/common/http';
     RecipesComponent,
     ExpandedSmartInfoCardComponent,
     StepComponent,
-    EditRecipeComponent
+    ViewRecipeComponent,
+    AddRecipeComponent,
+    IngridientComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       { path: 'recipes', component: RecipesComponent },
-      { path: 'recipe/:id', component: EditRecipeComponent},
+      { path: 'recipe/:id', component: ViewRecipeComponent}, // TODO
+      { path: 'edit-recipe/:id', component: AddRecipeComponent}, //TODO
+      { path: 'add-recipe', component: AddRecipeComponent},
     ])
   ],
   providers: [

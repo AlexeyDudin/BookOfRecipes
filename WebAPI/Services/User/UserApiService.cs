@@ -45,6 +45,10 @@ namespace WebAPI.Services.User
             {
                 return new Result(JsonSerializer.Serialize(_userService.GetUserInfo(user.Login, user.Password)), ResponseStatus.Ok);
             }
+            catch (UserAuthException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.UserNotFound);
+            }
             catch (Exception ex)
             {
                 return new Result(ex.Message, ResponseStatus.Error);

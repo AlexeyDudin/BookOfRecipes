@@ -53,7 +53,7 @@ namespace Application.Users
         {
             User user = _userRepository.FirstOrDefault(user => user.Login == login && user.Password == password);
             if (user == null)
-                throw new UserAuthException("Не найден пользователь с таким логином и паролем");
+                throw new UserAuthException(login, password);
             return user;
         }
 

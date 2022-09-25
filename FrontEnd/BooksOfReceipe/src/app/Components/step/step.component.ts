@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Step } from 'src/app/Entityes/Steep';
 
 @Component({
@@ -8,12 +8,9 @@ import { Step } from 'src/app/Entityes/Steep';
 })
 export class StepComponent implements OnInit {
 
-  _step: Step = {
-    count: 0,
-    description: "",
-  }
-  constructor(step:Step) {
-    this._step = step; 
+  @Input() step!: Step;
+
+  constructor() { 
    }
 
   ngOnInit(): void {

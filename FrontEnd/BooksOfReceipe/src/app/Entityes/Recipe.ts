@@ -9,25 +9,11 @@ export class Recipe {
     title: string = "";
     owner!: User;
     text: string = "";
-    tags: TagClass [] = [
-        {
-            text : ""
-        }];
+    tags: TagClass [] = [];
     timer: number = 0;
     persons: number = 0;
-    ingridients: IngridientClass[] = [
-        {
-            text: "",
-            count: 0,
-            typeOfCount: "",
-        }
-    ];
-    step: StepClass[] = [
-        {
-            count: 0,
-            description: "",
-        }
-    ];
+    ingridients: IngridientClass[] = [];
+    step: StepClass[] = [];
     likeCount: number = 0;
     imagePath!: RecipePhoto;
     }

@@ -1,0 +1,26 @@
+.ingridient {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 371px;
+    margin-bottom: 10px;
+}
+
+.ingridient__header {
+    width: 90%;
+    height: 20%;
+    border: 1px solid rgba(145, 150, 161, 0.4);
+    border-radius: 16px;
+    margin-bottom: 31px;
+    margin-top: 36px;
+}
+
+.ingridient__text {
+    border: 1px solid rgba(145, 150, 161, 0.4);
+    border-radius: 16px;
+    width: 90%;
+    height: 70%;
+    margin-bottom: 36px;
+}

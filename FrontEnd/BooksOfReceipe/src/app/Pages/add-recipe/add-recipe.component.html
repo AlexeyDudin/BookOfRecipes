@@ -1,0 +1,61 @@
+<div class="add_recipe__display">
+    <div class="back__button"><- Назад</div>
+    <div class="header">
+        <div class="header__text">Добавить новый рецепт</div>
+        <button class="header__button header__button__text">
+            Опубликовать
+        </button>
+    </div>
+    <div class="main_tab">
+        <div class="main_tab__image">
+            <div class="main_tab__image__inside_block">
+                <img [src]="uploadImagePath">
+                <div class="image__inside_block__text">Загрузите фото готового блюда</div>
+            </div>
+        </div>
+        <div class="main_tab__text">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Название рецепта</mat-label>
+                <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Краткое описание рецепта (150 символов)</mat-label>
+                <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Добавить теги</mat-label>
+                <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Время готовки</mat-label>
+                    <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+                </mat-form-field>
+                 минут
+                 <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Порций в блюде</mat-label>
+                    <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+                </mat-form-field>
+                 Персон
+            </div>
+        </div>
+    </div>
+    <div class="info_tab">
+        <div class="info_tab__ingridients">
+            <div class="ingridients__text">
+                Ингридиенты
+            </div>
+            <div class="exit_button">
+                <img class="remove_last_ingridient__button" src="./assets/images/CloseCross.svg" (click)="removeIngridient()"/>
+            </div>
+            <app-ingridient *ngFor="let ingridient of this.recipe.ingridients"></app-ingridient>
+            <button class="add_ingridient__button" (click)="addIngridient()">
+                <div class="add_ingridient__button__plus">+</div>
+                <div class="add_ingridient__button__text">Добавить заголовок</div>
+            </button>
+        </div>
+        <div class="info_tab__steps">
+            <app-step *ngFor="let stepOfRecipe of this.recipe.step" [step]="stepOfRecipe"></app-step>
+        </div>
+    </div>
+</div>

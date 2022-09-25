@@ -61,10 +61,13 @@ export class RecipesComponent implements OnInit {
   }
 
   recipeClick(recipeId: number){
-    //this.route
   }
 
   ViewRecipe(index: any) {
     this.router.navigate(['recipe/', index]);
+  }
+
+  GotoAddRecipe() {
+    this.router.navigate(['add-recipe']);
   }
 }

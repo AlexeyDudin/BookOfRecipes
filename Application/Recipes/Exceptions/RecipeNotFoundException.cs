@@ -1,4 +1,4 @@
-﻿namespace Application.Users.Exceptions
+﻿namespace Application.Recipes.Exceptions
 {
     public class RecipeNotFoundException : Exception
     {
