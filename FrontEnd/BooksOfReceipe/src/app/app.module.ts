@@ -67,8 +67,8 @@ import { IngridientComponent } from './Components/ingridient/ingridient.componen
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       { path: 'recipes', component: RecipesComponent },
-      { path: 'recipe/:id', component: ViewRecipeComponent}, // TODO
-      { path: 'edit-recipe/:id', component: AddRecipeComponent}, //TODO
+      { path: 'recipe/:id', component: ViewRecipeComponent},
+      { path: 'edit-recipe/:id', component: AddRecipeComponent},
       { path: 'add-recipe', component: AddRecipeComponent},
     ])
   ],

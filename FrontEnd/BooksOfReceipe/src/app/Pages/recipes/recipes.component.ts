@@ -15,7 +15,6 @@ export class RecipesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
   ) {}
-  // constructor() { }
 
   @Input() recipes: Recipe[] = 
   [

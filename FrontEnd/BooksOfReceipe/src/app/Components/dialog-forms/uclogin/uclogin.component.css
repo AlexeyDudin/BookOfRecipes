@@ -32,17 +32,13 @@
 .login__text
 {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 28px;
-
-/* or 156% */
-font-feature-settings: 'case' on;
-
-color: #4A525A;
-
-margin-top: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    font-feature-settings: 'case' on;
+    color: #4A525A;
+    margin-top: 30px;
 }
 
 .login__buttons
@@ -59,16 +55,14 @@ margin-top: 30px;
     border-radius: 16px;
 
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 28px;
-flex-grow: 1;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    flex-grow: 1;
+    text-align: center;
 
-/* identical to box height, or 156% */
-text-align: center;
-
-color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 .login__button__register
@@ -76,16 +70,14 @@ color: #FFFFFF;
     border: 1px solid #FDB100;
     border-radius: 16px;
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 28px;
-
-/* identical to box height, or 156% */
-text-align: center;
-background-color: #FFFFFF;
-flex-grow: 1;
-color: #FDB100;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    background-color: #FFFFFF;
+    flex-grow: 1;
+    color: #FDB100;
 }
 
 .authorize
