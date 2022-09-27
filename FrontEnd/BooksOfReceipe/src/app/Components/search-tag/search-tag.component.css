@@ -5,12 +5,8 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
-
-    /* identical to box height, or 112% */
     display: flex;
     align-items: center;
-
     color: #808080;
-
     margin-right: 10px;
 }

@@ -27,7 +27,6 @@
     max-height: 430px;
     border-radius: 72px 0px;
     flex-grow: 2;
-    /* background-image: (url()); {{recipe.imagePath}} */
 }
 
 .recipe__image__size {
@@ -63,10 +62,8 @@
 .tags__tag
 {
     width: 90px;
-    /* height: 20px; */
     text-align: center;
     background: #FDB100;
-    /* opacity: 0.2; */
     border-radius: 5px;
     margin: 5px;
 }
@@ -128,10 +125,7 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
-
-    /* identical to box height, or 156% */
     text-align: center;
-
     color: #FDB100;
 }
 
@@ -146,15 +140,12 @@
 .info__likes__count
 {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 28px;
-
-/* identical to box height, or 156% */
-text-align: center;
-
-color: #FDB100;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    color: #FDB100;
 }
 
 .text_info__header
@@ -164,7 +155,6 @@ color: #FDB100;
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
-    /* identical to box height, or 125% */
     text-transform: capitalize;
     color: #25292D;    
 }
@@ -176,7 +166,6 @@ color: #FDB100;
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
-    /* or 167% */
     color: #4A525A;
 }
 
@@ -203,42 +192,32 @@ color: #FDB100;
 .info__text_style
 {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 28px;
-
-/* identical to box height, or 200% */
-
-color: #25292D;
-
-opacity: 0.5;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: #25292D;
+    opacity: 0.5;
 }
 
 .info__time_style
 {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
-
-/* identical to box height, or 175% */
-
-color: #25292D;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #25292D;
 }
 
 .info__person_style
 {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
-
-/* identical to box height, or 175% */
-
-color: #25292D;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #25292D;
 }
 
 .person__image

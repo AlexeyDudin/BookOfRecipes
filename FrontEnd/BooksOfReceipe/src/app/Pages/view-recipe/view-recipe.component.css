@@ -13,9 +13,6 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
-
-    /* identical to box height */
-
     color: #FDB100;
     display: inline-flex;
 
@@ -46,9 +43,6 @@
     font-weight: 700;
     font-size: 42px;
     line-height: 62px;
-
-    /* identical to box height, or 148% */
-
     color: #25292D;
 }
 
@@ -97,9 +91,6 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
-
-    /* identical to box height, or 156% */
-
     color: #FFFFFF;
 }
 
@@ -113,12 +104,8 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
-
-/* identical to box height, or 125% */
     text-transform: capitalize;
-
     color: #FDB100;
-
     opacity: 0.5;
 }
 

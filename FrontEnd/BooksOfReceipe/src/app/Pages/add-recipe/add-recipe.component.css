@@ -69,7 +69,6 @@
 
     background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
     border-radius: 72px 0px;
-    /* padding: 82px 78px 82px 78px; */
 }
 
 .main_tab__image__inside_block {
@@ -135,9 +134,6 @@
 }
 
 .remove_last_ingridient__button {
-    /* justify-self: right;
-    align-items: flex-end;
-    align-self: flex-end; */
 }
 
 .add_ingridient__button {

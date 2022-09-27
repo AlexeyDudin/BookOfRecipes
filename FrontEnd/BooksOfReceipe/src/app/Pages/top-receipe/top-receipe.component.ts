@@ -27,14 +27,10 @@ export class TopReceipeComponent implements OnInit {
     step:[]
   }
 
-  // topReceipeImage="./assets/images/Rectangle 8.png";
   likeImage="./assets/images/Like.svg";
   timerImage="./assets/images/timer.svg";
 
   receipeOfDayLogo="./assets/images/ReceipeOfDay.png";
-
-  // likeCount=123;
-  // timeCount="35"
 
   ngOnInit(): void {
   }
