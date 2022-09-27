@@ -39,5 +39,9 @@ namespace Infrastructure.Foundation
         {
             return predicate != null ? Entities.Where(predicate).ToList() : new List<T>();
         }
+        public IQueryable<T> GetQuery()
+        {
+            return Entities.AsQueryable();
+        }
     }
 }

@@ -19,17 +19,11 @@ namespace Application.Users
         {
             User user = _userRepository.FirstOrDefault(user => user.Login == login);
             user.Password = password;
-            //User changedUser = UserFunctions.Clone(user);
-            //changedUser.Password = password;
-            //_userRepository.Change(user, changedUser);
-            //TODO
             _unitOfWork.Commit();
         }
 
         public User CreateUser(string login, string password, string username, string? description)
         {
-            //TODO Check unique login
-
             User user = new User
             {
                 Login = login,
@@ -73,10 +67,6 @@ namespace Application.Users
             User changedUser = _userRepository.FirstOrDefault(changedUser => changedUser.Login == login && changedUser.Password == password);
             changedUser.UserName = newUserName;
             changedUser.Description = newDescription;
-            //User newUserInfo = UserFunctions.Clone(changedUser);
-            //newUserInfo.Description = newDescription;
-            //newUserInfo.UserName = newUserName;
-            //_userRepository.Change(changedUser, newUserInfo);
             _unitOfWork.Commit();
             return changedUser;
         }

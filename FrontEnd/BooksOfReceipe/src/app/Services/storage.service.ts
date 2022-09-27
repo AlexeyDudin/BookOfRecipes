@@ -13,7 +13,16 @@ export class StorageService {
 
   saveToStorage(storageInfo: string) {
     localStorage.setItem(AppSettings.localStorageKey, storageInfo);
+    if (this.onSaveStorage !== null) {
+      this.onSaveStorage();
+    }
   }
+
+  addSaveStorageCallback(onSaveStorage: () => void) {
+    this.onSaveStorage = onSaveStorage;
+  }
+
+  private onSaveStorage: () => void = () => {};
 
   private getDecodedAccessToken(token: string): any {
     try {

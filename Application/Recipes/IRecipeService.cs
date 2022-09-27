@@ -9,7 +9,7 @@ namespace Application.Recipes
         Recipe ChangeRecipe(Recipe recipe);
         List<Recipe> GetByContainigName(string name);
         List<Recipe> GetAllRecipes();
-        Recipe? GetTopRecipe();
+        Recipe GetTopRecipe();
         List<Recipe> GetAllRecipesOfUser(User user);
         Recipe GetRecypeById(long id);
     }

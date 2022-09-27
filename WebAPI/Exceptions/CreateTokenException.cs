@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Exceptions
+﻿namespace Security.Token.Exceptions
 {
     public class CreateTokenException : Exception
     {

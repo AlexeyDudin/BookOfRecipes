@@ -1,6 +1,6 @@
 ﻿using Application.Users;
 using Application.Users.Exceptions;
-using WebAPI.Exceptions;
+using Security.Token.Exceptions;
 using System.Text.Json;
 using WebAPI.Converters;
 using WebAPI.Dto;

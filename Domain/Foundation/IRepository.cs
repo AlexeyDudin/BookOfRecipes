@@ -10,5 +10,7 @@ namespace Domain.Foundation
         void Delete(T entity);
         List<T> Where(Expression<Func<T, bool>> predicate);
         List<T> GetAll();
+        IQueryable<T> GetQuery();
+
     }
 }

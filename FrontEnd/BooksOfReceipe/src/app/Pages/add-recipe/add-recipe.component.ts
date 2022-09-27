@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { UcLoginComponent } from 'src/app/Components/dialog-forms/uclogin/uclogin.component';
 import { LoginComponent } from 'src/app/Components/login/login.component';
 import { IngridientClass } from 'src/app/Entityes/IngridientClass';
 import { Recipe } from 'src/app/Entityes/Recipe';
@@ -18,7 +20,7 @@ export class AddRecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
 
-  constructor(private route: ActivatedRoute, private recipeService: ResipeService, public login: LoginComponent) { }
+  constructor(private route: ActivatedRoute, private recipeService: ResipeService, public storage: StorageService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.checkOnUserLogin();
@@ -26,8 +28,8 @@ export class AddRecipeComponent implements OnInit {
   }
 
   checkOnUserLogin(): void {
-    if (!this.login.isUserAuthorized())
-      this.login.openLoginDialog();
+    if (this.storage.getUserFromStorage() === null)
+      this.dialog.open(UcLoginComponent);
   }
   
   initialize(): void {

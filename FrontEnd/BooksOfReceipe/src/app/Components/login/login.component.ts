@@ -17,12 +17,13 @@ export class LoginComponent implements OnInit {
   constructor(public dialog: MatDialog, private storage: StorageService) { }
 
   initUser() {
-    this.user = this.storage.getUserFromStorage(); 
+    this.user = this.storage.getUserFromStorage();
   }
 
   initialize() {
     this.loginSrc = "./assets/images/login.svg";
-    this.initUser();
+    this.initUser(); 
+    this.storage.addSaveStorageCallback(() => this.initUser());
   }
 
   ngOnInit(): void {
@@ -34,11 +35,12 @@ export class LoginComponent implements OnInit {
   }
   
   openLoginDialog() {
-    let result = this.dialog.open(UcLoginComponent);
-    result.afterClosed().subscribe(() => {this.initUser()});
+    this.dialog.open(UcLoginComponent);
+    //let result = this.dialog.open(UcLoginComponent);
+    //result.afterClosed().subscribe(() => {this.initUser()});
   }
 
-  isUserAuthorized(): boolean {
-    return this.storage.getUserFromStorage() !== null;
-  }
+  // isUserAuthorized(): boolean {
+  //   return this.storage.getUserFromStorage() !== null;
+  // }
 }

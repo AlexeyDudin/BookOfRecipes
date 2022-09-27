@@ -59,9 +59,9 @@ namespace Application.Recipes
             return findedRecipe;
         }
 
-        public Recipe? GetTopRecipe()
+        public Recipe GetTopRecipe()
         {
-            return _unitOfWork.RecipeRepository.GetAll().OrderByDescending(r => r.Likes.Result).FirstOrDefault();
+            return _unitOfWork.RecipeRepository.GetQuery().OrderByDescending(r => r.Likes.Result).FirstOrDefault();
         }
     }
 }
