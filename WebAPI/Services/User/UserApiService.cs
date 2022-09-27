@@ -1,5 +1,6 @@
 ﻿using Application.Users;
 using Application.Users.Exceptions;
+using Security.Token.Exceptions;
 using System.Text.Json;
 using WebAPI.Converters;
 using WebAPI.Dto;
@@ -43,6 +44,10 @@ namespace WebAPI.Services.User
             try
             {
                 return new Result(JsonSerializer.Serialize(_userService.GetUserInfo(user.Login, user.Password)), ResponseStatus.Ok);
+            }
+            catch (UserAuthException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.UserNotFound);
             }
             catch (Exception ex)
             {
@@ -89,17 +94,40 @@ namespace WebAPI.Services.User
             }
         }
 
-        public Result CreateToken( UserLoginDto userLoginDto )
+        public string CreateToken( UserLoginDto userLoginDto )
         {
             try
             {
                 string token = _tokenService.GenerateToken( userLoginDto );
                 ResponseStatus responseStatus = string.IsNullOrEmpty( token ) ? ResponseStatus.UserNotFound : ResponseStatus.Ok;
-                return new Result(token, responseStatus);  
+                return token;  
             }
             catch ( Exception ex )
             {
-                return new Result( ex.Message, ResponseStatus.Error );
+                throw new CreateTokenException(ex.Message);
+            }
+        }
+
+        public Result Login(UserDto user)
+        {
+            try
+            {
+                Domain.Models.Users.User findedUser = _userService.GetUserInfo(user.Login, user.Password);
+                UserDto findedUserDto = findedUser.ConvertUserToDto();
+                string jsonSerializedString = JsonSerializer.Serialize(findedUserDto);
+                return new Result(CreateToken(new UserLoginDto { Login = user.Login, Password = user.Password}), ResponseStatus.Ok);
+            }
+            catch (UserAuthException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.UserNotFound);
+            }
+            catch (CreateTokenException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
             }
         }
     }

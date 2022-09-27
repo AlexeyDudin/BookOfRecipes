@@ -125,12 +125,12 @@ namespace Infrastructure.Migrations
                     b.Property<int>("CountPersons")
                         .HasColumnType("int");
 
-                    b.Property<long>("LikesId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("DescriptionText")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("LikesId")
+                        .HasColumnType("bigint");
 
                     b.Property<long>("OwnerId")
                         .HasColumnType("bigint");
@@ -138,12 +138,12 @@ namespace Infrastructure.Migrations
                     b.Property<long>("PhotoId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("ShortInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("TimeRemaining")
                         .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

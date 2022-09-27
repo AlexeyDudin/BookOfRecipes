@@ -24,3 +24,15 @@
     border: none;
     background: none;
 }
+
+.user_login {
+    display: inline-flex;
+}
+
+.text__login {
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+}

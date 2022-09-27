@@ -14,7 +14,7 @@ export class SmartInfoCardComponent implements OnInit {
   @Input() card: any;
 
   initialize() {
-    this.card = null;
+    //this.card = null;
   }
 
   ngOnInit(): void {

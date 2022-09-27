@@ -1,3 +1,9 @@
+<div class="header">
+    <div class="header__text">Рецепты</div>
+    <button class="header__button_add header__button_add__text" (click)="GotoAddRecipe()">
+        + Добавить рецепт
+    </button>
+</div>
 <app-smart-info></app-smart-info>
 <app-search></app-search>
 <app-expanded-smart-info-card *ngFor="let recipe of recipes" [recipe]="recipe" (click)="ViewRecipe(recipe.id)"></app-expanded-smart-info-card>

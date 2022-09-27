@@ -14,10 +14,10 @@ import { TopReceipeComponent } from './Pages/top-receipe/top-receipe.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { SmartInfoCardComponent } from './Components/smart-info-card/smart-info-card.component';
 import { SearchTagComponent } from './Components/search-tag/search-tag.component';
-import { UcLoginComponent } from './Components/UserComponent/uclogin/uclogin.component';
+import { UcLoginComponent } from './Components/dialog-forms/uclogin/uclogin.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { RegistrationComponent } from './Components/UserComponent/registration/registration.component';
+import { RegistrationComponent } from './Components/dialog-forms/registration/registration.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -27,8 +27,10 @@ import { RecipesComponent } from './Pages/recipes/recipes.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ExpandedSmartInfoCardComponent } from './Components/expanded-smart-info-card/expanded-smart-info-card.component';
 import { StepComponent } from './Components/step/step.component';
-import { EditRecipeComponent } from './Pages/edit-recipe/edit-recipe.component';
+import { ViewRecipeComponent } from './Pages/view-recipe/view-recipe.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddRecipeComponent } from './Pages/add-recipe/add-recipe.component';
+import { IngridientComponent } from './Components/ingridient/ingridient.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { HttpClientModule } from '@angular/common/http';
     RecipesComponent,
     ExpandedSmartInfoCardComponent,
     StepComponent,
-    EditRecipeComponent
+    ViewRecipeComponent,
+    AddRecipeComponent,
+    IngridientComponent
   ],
   imports: [
     BrowserModule,
@@ -63,13 +67,16 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: '', component: MainPageComponent },
       { path: 'recipes', component: RecipesComponent },
-      { path: 'recipe/:id', component: EditRecipeComponent},
+      { path: 'recipe/:id', component: ViewRecipeComponent}, // TODO
+      { path: 'edit-recipe/:id', component: AddRecipeComponent}, //TODO
+      { path: 'add-recipe', component: AddRecipeComponent},
     ])
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}, 
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,6 @@ export class ExpandedSmartInfoCardComponent implements OnInit {
   @Input() recipe: any;
 
   initialize() {
-    this.recipe = null;
     this.starImage = "./asset/";
   }
 

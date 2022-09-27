@@ -33,7 +33,8 @@ namespace WebAPI.Security.Auths
 
             List<Claim> authClaims = new()
             {
-                new( ClaimTypes.Name, user.UserName ),
+                new( ClaimTypes.UserName, user.UserName),
+                new( ClaimTypes.Login, user.Login ),
                 new( JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString() ),
                 new( ClaimTypes.Role, UserRole.User )
             };

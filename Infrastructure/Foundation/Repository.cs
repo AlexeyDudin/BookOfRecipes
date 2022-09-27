@@ -13,32 +13,35 @@ namespace Infrastructure.Foundation
         {
             DbContext = dbContext;
         }
-
         public T First()
         {
             return Entities.First();
         }
-
         public T FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             return predicate != null ? Entities.FirstOrDefault(predicate) : First();
         }
-
         public void Add(T entity)
         {
             Entities.Add(entity);
         }
-
         public void Delete(T entity)
         {
             if (Entities.Contains(entity))
                 Entities.Remove(entity);
         }
-
         public List<T> GetAll()
         {
             var entities = Entities.ToList();
             return entities;
+        }
+        public List<T> Where(Expression<Func<T, bool>> predicate)
+        {
+            return predicate != null ? Entities.Where(predicate).ToList() : new List<T>();
+        }
+        public IQueryable<T> GetQuery()
+        {
+            return Entities.AsQueryable();
         }
     }
 }

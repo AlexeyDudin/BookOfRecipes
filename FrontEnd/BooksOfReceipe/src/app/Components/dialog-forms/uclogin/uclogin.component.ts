@@ -1,8 +1,13 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Inject, OnInit, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { AppSettings } from 'src/app/constants';
 import { User } from 'src/app/Entityes/user';
 import { AuthService } from 'src/app/Services/auth.service';
+import { StorageService } from 'src/app/Services/storage.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-uclogin',
@@ -11,9 +16,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class UcLoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
-
-  @Output() resultUser: any;
+  constructor(private auth: AuthService, public dialog: MatDialog, private storage:StorageService) { }
 
   public user!: User;
 
@@ -30,12 +33,11 @@ export class UcLoginComponent implements OnInit {
 
   initialize(): void {
     this.user = {
-      Login: "",
-      Password: "",
-      Description: "",
-      Username: "",
-    };
-  
+      Login:"",
+      Description:"",
+      Password:"",
+      Username:""
+    }
     this.passwdConfirm = "";
   
     this.title = "Войдите в профиль";
@@ -65,10 +67,10 @@ export class UcLoginComponent implements OnInit {
   }
 
   loginPostClick() {
-
+    this.auth.authorize(this.user).subscribe(res => {this.storage.saveToStorage(res.content); this.dialog.closeAll()});
   }
 
   registerPostClick() {
-    this.resultUser = this.auth.createUser(this.user);
+    this.auth.createUser(this.user).subscribe(res => {this.storage.saveToStorage(res.content); this.dialog.closeAll()});
   }
 }

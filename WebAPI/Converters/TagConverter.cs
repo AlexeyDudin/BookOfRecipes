@@ -12,7 +12,6 @@ namespace WebAPI.Converters
             foreach (TagsDto tagDto in tagsDtos)
             {
                 tags.Add(new RecipeTag { Tag = new Tags { Name = tagDto.Name } });
-                //tags.Add(new RecipeTag { Name = tagDto.Name });
             }
             return tags;
         }

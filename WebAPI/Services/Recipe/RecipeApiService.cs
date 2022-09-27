@@ -3,6 +3,7 @@ using WebAPI.Dto.Recipes;
 using WebAPI.Dto.Response;
 using Application.Recipes;
 using WebAPI.Converters;
+using Application.Recipes.Exceptions;
 
 namespace WebAPI.Services.Recipe
 {
@@ -61,14 +62,18 @@ namespace WebAPI.Services.Recipe
             {
                 return new Result(ex.Message, ResponseStatus.Error);
             }
-            //TODO
-            throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
         }
 
         public Result GetRecipeByContainingName(string name)
         {
-            //TODO
-            throw new NotImplementedException("Нужно реализовать GetRecipeOfUser в RecipeApiService");
+            try
+            {
+                return new Result(_recipeService.GetByContainigName(name), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
         }
 
         public Result GetTopRecipe()
@@ -76,6 +81,22 @@ namespace WebAPI.Services.Recipe
             try
             {
                 return new Result(_recipeService.GetTopRecipe(), ResponseStatus.Ok);
+            }
+            catch (Exception ex)
+            {
+                return new Result(ex.Message, ResponseStatus.Error);
+            }
+        }
+
+        public Result GetRecypeById(long id)
+        {
+            try
+            {
+                return new Result(_recipeService.GetRecypeById(id), ResponseStatus.Ok);
+            }
+            catch (RecipeNotFoundException ex)
+            {
+                return new Result(ex.Message, ResponseStatus.RecipeNotFound);
             }
             catch (Exception ex)
             {

@@ -24,9 +24,18 @@
 .recipe__image
 {
     max-width: 430px;
+    max-height: 430px;
     border-radius: 72px 0px;
     flex-grow: 2;
     /* background-image: (url()); {{recipe.imagePath}} */
+}
+
+.recipe__image__size {
+    max-height: 430px;
+}
+
+.space_between_flex {
+    width: 53px;
 }
 
 .recipe__text_info

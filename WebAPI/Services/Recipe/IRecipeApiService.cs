@@ -13,5 +13,6 @@ namespace WebAPI.Services.Recipe
 
         Result GetRecipeByContainingName(string name);
         Result GetTopRecipe();
+        Result GetRecypeById(long id);
     }
 }

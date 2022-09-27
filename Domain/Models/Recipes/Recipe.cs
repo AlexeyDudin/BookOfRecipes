@@ -9,12 +9,12 @@ namespace Domain.Models.Recipes
     {
         [Key]
         public long Id { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
         
         [ForeignKey("OwnerId")]
         public User Owner { get; set; }
 
-        public string ShortInfo { get; set; }
+        public string DescriptionText { get; set; }
 
         public List<RecipeTag> RecipeTags { get; set; }
         public int TimeRemaining { get; set; }

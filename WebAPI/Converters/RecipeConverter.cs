@@ -9,10 +9,10 @@ namespace WebAPI.Converters
         {
             Recipe recipe = new Recipe();
             recipe.Id = recipeDto.Id;
-            recipe.Name = recipeDto.Name;
+            recipe.Title = recipeDto.Title;
             recipe.CountPersons = recipeDto.CountPersons;
             recipe.TimeRemaining = recipeDto.TimeRemaining;
-            recipe.ShortInfo = recipeDto.ShortInfo;
+            recipe.DescriptionText = recipeDto.DescriptionText;
             recipe.RecipeTags = recipeDto.Tags.ConvertTagListFromDto();
             recipe.Steps = recipeDto.Steps.ConvertStepListFromDto();
             recipe.Owner = recipeDto.Owner.ConverUserFromDto();
@@ -25,10 +25,10 @@ namespace WebAPI.Converters
         {
             RecipeDto recipeDto = new RecipeDto();
             recipeDto.Id = recipe.Id;
-            recipeDto.Name = recipeDto.Name;
+            recipeDto.Title = recipeDto.Title;
             recipeDto.CountPersons = recipe.CountPersons;
             recipeDto.TimeRemaining = recipe.TimeRemaining;
-            recipeDto.ShortInfo = recipe.ShortInfo;
+            recipeDto.DescriptionText = recipe.DescriptionText;
             recipeDto.Tags = recipe.RecipeTags.ConvertTagListToDto();
             recipeDto.Steps = recipe.Steps.ConvertStepListToDto();
             recipeDto.Owner = recipe.Owner.ConvertUserToDto();
