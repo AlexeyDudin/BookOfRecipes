@@ -33,3 +33,47 @@
     line-height: 28px;
     color: #FFFFFF;
 }
+
+.receipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.receipes__search {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.receipes__search__text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #25292D;
+
+    margin-top: 57px;
+    width: 250px;
+}
+
+.recipe__load {
+    width: 309px;
+    border: 1px solid #FDB100;
+    border-radius: 16px;
+    box-sizing: border-box;
+    height: 60px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FDB100;
+
+    margin-bottom: 108px;
+}

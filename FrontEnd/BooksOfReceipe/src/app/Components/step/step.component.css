@@ -43,3 +43,7 @@
     line-height: 30px;
     color: #4A525A;
 }
+
+.remove_step__button {
+    align-self: flex-end;
+}

@@ -4,10 +4,8 @@
         <div class="smart_info__main_position smart_info__main_text">Добавляй рецепты и указывай наиболее популярные теги. Это позволит быстро находить любые категории</div>
     </div>
     <div class="smart_info__info">
-        
             <app-smart-info-card *ngFor="let card of smartInfoCards"
-                [card]="card">
-                
+                [card]="card" [isShowFullInfo]="this.isShowFullCardInfo">
             </app-smart-info-card>
     </div>
 </div>

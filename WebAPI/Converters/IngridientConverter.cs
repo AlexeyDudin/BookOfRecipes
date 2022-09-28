@@ -12,7 +12,7 @@ namespace WebAPI.Converters
 
             foreach (IngridientDto ingridientDto in ingridientDtoList)
             {
-                result.Add(new Ingridient { Name = ingridientDto.Name, Products = ingridientDto.Products.ConvertProductListFromDto() });
+                result.Add(new Ingridient { Name = ingridientDto.Name, Products = ingridientDto.Products });
             }
 
             return result;
@@ -24,7 +24,7 @@ namespace WebAPI.Converters
 
             foreach (Ingridient ingridient in ingridientList)
             {
-                result.Add(new IngridientDto { Name = ingridient.Name, Products = ingridient.Products.ConvertProductListToDto() });
+                result.Add(new IngridientDto { Name = ingridient.Name, Products = ingridient.Products });
             }
 
             return result;

@@ -16,7 +16,14 @@ export class BaseService {
     return this.http.post<any>(AppSettings.hostAddress + routing, obj, {responseType: "json"});
   }
 
-  sendGet() {
+  sendGet(routing: string):Observable<ServerResponse> {
+    return this.http.get<any>(AppSettings.hostAddress + routing, {responseType: "json"});
+  }
 
+  sendPostWithAuthHeader(routing: string, obj: any, token: string | null) {
+    if (token === null)
+      return this.sendPost(routing, obj);
+    const headers = { 'Authorization': 'Bearer ' + token , 'My-Custom-Header': 'foobar' };
+    return this.http.post<any>(AppSettings.hostAddress + routing, obj, {headers});
   }
 }

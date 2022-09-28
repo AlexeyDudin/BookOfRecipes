@@ -4,8 +4,8 @@
         <div class="text__main_text">Никаких кулинарных книг и блокнотов! Храни все</div>
         <div class="text__main_text">любимые рецепты в одном месте</div>
         <div class="recomendation__buttons">
-            <button class="button__add_receipe">+ Добавить рецепт</button>
-            <button class="button__login">Войти</button>
+            <button class="button__add_receipe" [routerLink]="'add-recipe'">+ Добавить рецепт</button>
+            <button class="button__login" (click)="login()">Войти</button>
         </div>
     </div>
     <!-- <div class="recomendation__image">

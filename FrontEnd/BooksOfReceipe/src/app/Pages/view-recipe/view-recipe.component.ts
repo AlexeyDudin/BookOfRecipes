@@ -20,7 +20,7 @@ export class ViewRecipeComponent implements OnInit {
     let currentIdStr = this.route.snapshot.paramMap.get('id')?.toString();
     if (currentIdStr !== null && currentIdStr !== undefined) {
       this.recipe.id = Number.parseInt(currentIdStr);
-      this.recipeService.getRecypeById(this.recipe.id).subscribe(res => {
+      this.recipeService.getRecipeById(this.recipe.id).subscribe(res => {
         if (res.code == 0)
           this.recipe = JSON.parse(res.content);
       });

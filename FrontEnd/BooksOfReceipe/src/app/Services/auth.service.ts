@@ -16,6 +16,6 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.baseService.sendPost('/api/user/add', user);
+    return this.baseService.sendPost('/api/user', user);
   }
 }

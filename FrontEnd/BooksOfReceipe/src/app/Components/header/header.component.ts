@@ -23,8 +23,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.initialize();
   }
-  
-  openDialog() {
-    this.dialog.open(UcLoginComponent);
-  }
 }

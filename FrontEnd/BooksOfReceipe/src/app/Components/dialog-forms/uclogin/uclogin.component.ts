@@ -31,6 +31,8 @@ export class UcLoginComponent implements OnInit {
 
   closeCross = "./assets/images/CloseCross.svg"
 
+  isInvalid: boolean = false;
+
   initialize(): void {
     this.user = {
       Login:"",
@@ -71,6 +73,18 @@ export class UcLoginComponent implements OnInit {
   }
 
   registerPostClick() {
-    this.auth.createUser(this.user).subscribe(res => {this.storage.saveToStorage(res.content); this.dialog.closeAll()});
+    if (this.user.Password !== this.passwdConfirm)
+    {
+      this.isInvalid = true;
+    }
+    else
+    {
+      this.auth.createUser(this.user).subscribe(res => 
+        {
+          this.storage.saveToStorage(res.content);
+          this.dialog.closeAll();
+          this.isInvalid = false;
+        });
+    }
   }
 }

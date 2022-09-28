@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TagClass } from 'src/app/Entityes/TagClass';
 
 @Component({
@@ -12,8 +12,9 @@ export class SearchComponent implements OnInit {
 
   tags: TagClass[] = [];
 
+  @Input() isShowHeaderText: boolean = true;
+
   ngOnInit(): void {
     this.tags = [{text:'Мясо'}, {text:'Деликатесы'}, {text:'Пироги'}, {text: 'Рыба'}]
   }
-
 }
