@@ -1,6 +1,6 @@
 <div class="search">
-    <div class="search__header">Поиск рецептов</div>
-    <div class="search__text">Введите примерное название блюда, а мы по тегам найдем его</div>
+    <div class="search__header" *ngIf="isShowHeaderText">Поиск рецептов</div>
+    <div class="search__text" *ngIf="isShowHeaderText">Введите примерное название блюда, а мы по тегам найдем его</div>
     <div class="search__div">
         <div class="search_div__box">
             <div class="search__field">

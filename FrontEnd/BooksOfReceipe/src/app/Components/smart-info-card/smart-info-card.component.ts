@@ -12,6 +12,7 @@ export class SmartInfoCardComponent implements OnInit {
   constructor() { }
 
   @Input() card: any;
+  @Input() isShowFullInfo: boolean = true;
 
   ngOnInit(): void {
   }

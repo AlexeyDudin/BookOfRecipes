@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SmartInfoCard } from 'src/app/Entityes/SmartInfoCard';
 
 @Component({
@@ -17,9 +17,15 @@ export class SmartInfoComponent implements OnInit {
 
   smartInfoCards: SmartInfoCard[] = [];
 
+  @Input() isShowFullCardInfo: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize(): void {
     this.smartInfoCards = [
       {
         imagePath: this.firstImage,

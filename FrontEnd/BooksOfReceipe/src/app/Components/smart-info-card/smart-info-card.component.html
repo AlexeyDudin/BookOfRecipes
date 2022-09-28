@@ -3,5 +3,5 @@
         <img src="{{card.imagePath}}" class="block__image__size"/>
     </div>
     <div class="block__header_text">{{card.title}}</div>
-    <div class="block__main_text">{{card.text}}</div>
+    <div class="block__main_text" *ngIf="this.isShowFullInfo">{{card.text}}</div>
 </div>

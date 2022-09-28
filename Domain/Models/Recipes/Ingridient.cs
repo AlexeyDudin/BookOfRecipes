@@ -10,7 +10,8 @@ namespace Domain.Models.Recipes
         [ForeignKey("RecipeId")]
         public Recipe ParentRecipe { get; set; }
         public string Name { get; set; }
-        public List<Product> Products { get; set; }
+        public string Products { get; set; }
+        //public List<Product> Products { get; set; }
         
     }
 }

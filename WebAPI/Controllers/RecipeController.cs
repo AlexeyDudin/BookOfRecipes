@@ -29,6 +29,7 @@ namespace WebAPI.Controllers
             return GetResponse(_recipeApiService.GetRecipeOfUser(user));
         }
 
+        [AllowAnonymous]
         [HttpGet, Route("all")]
         public IActionResult GetAllRecipes()
         {

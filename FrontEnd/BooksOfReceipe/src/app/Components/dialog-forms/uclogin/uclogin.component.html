@@ -7,11 +7,11 @@
         <button class="login__button__register" (click)="registerClick()">Регистрация</button>
     </div>
     <form class="authorize" *ngIf="isShowLoginPage">
-        <mat-form-field class="example-full-width input_field" appearance="fill">
+        <mat-form-field class="example-full-width input_field" appearance="outline">
             <mat-label>Логин</mat-label>
             <input matInput placeholder="Введите логин" name="login" [(ngModel)]="this.user.Login">
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Пароль</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" name="password" placeholder="Введите пароль" [(ngModel)]="this.user.Password">
         </mat-form-field>
@@ -21,22 +21,23 @@
         </div>
     </form>
     <form class="authorize" *ngIf="isShowRegisterPage">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Имя</mat-label>
             <input matInput placeholder="Введите имя" name="name" [(ngModel)]="this.user.Username">
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Логин</mat-label>
             <input matInput placeholder="Введите логин" name="login" [(ngModel)]="this.user.Login">
         </mat-form-field>
         <div class="registration__password">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Пароль</mat-label>
                 <input matInput name="password" [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [(ngModel)]="this.user.Password">
             </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Повторите пароль</mat-label>
                 <input matInput name="checkPassword" [type]="hide ? 'password' : 'text'" placeholder="Введите пароль" [(ngModel)]="this.passwdConfirm">
+                <mat-error *ngIf="this.isInvalid">Пароль и его подтверждение не совпадают</mat-error>
             </mat-form-field>
         </div>
         <div class="login__buttons">

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { MatSelectModule } from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './Components/header/header.component';
@@ -31,6 +31,8 @@ import { ViewRecipeComponent } from './Pages/view-recipe/view-recipe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddRecipeComponent } from './Pages/add-recipe/add-recipe.component';
 import { IngridientComponent } from './Components/ingridient/ingridient.component';
+import { StorageService } from './Services/storage.service';
+import { BaseService } from './Services/base.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { IngridientComponent } from './Components/ingridient/ingridient.componen
     MatNativeDateModule,
     FormsModule,
     MatInputModule,
+    MatSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([

@@ -42,6 +42,10 @@ export class StorageService {
     return null;
   }
 
+  getToken() {
+    return localStorage.getItem(AppSettings.localStorageKey);
+  }
+
   getUserFromStorage() {
     let user: User;
     let memoryInfo = localStorage.getItem(AppSettings.localStorageKey);

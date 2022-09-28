@@ -12,8 +12,8 @@ export class Recipe {
     tags: TagClass [] = [];
     timer: number = 0;
     persons: number = 0;
-    ingridients: IngridientClass[] = [];
-    step: StepClass[] = [];
+    ingridients: IngridientClass[] = [{text: "", count: 0}];
+    step: StepClass[] = [{ count: 1, description: ""}];
     likeCount: number = 0;
     imagePath!: RecipePhoto;
     }
