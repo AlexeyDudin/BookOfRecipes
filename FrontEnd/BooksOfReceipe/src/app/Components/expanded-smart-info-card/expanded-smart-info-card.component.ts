@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Recipe } from 'src/app/Entityes/Recipe';
+import { RecipeDto } from 'src/app/Entityes/Recipe';
 
 @Component({
   selector: 'app-expanded-smart-info-card',

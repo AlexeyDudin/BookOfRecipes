@@ -5,8 +5,8 @@ namespace Domain.Models.Recipes
     public class Tags
     {
         [Key]
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public List<RecipeTag> Recipes { get; set; }
+        public virtual long Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual List<RecipeTag> Recipes { get; set; }
     }
 }

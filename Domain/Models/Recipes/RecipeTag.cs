@@ -6,12 +6,12 @@ namespace Domain.Models.Recipes
     public class RecipeTag
     {
         [Key]
-        public long Id { get; set; }
-        public long RecipeId { get; set; }
+        public virtual long Id { get; set; }
+        public virtual long RecipeId { get; set; }
         [ForeignKey("RecipeId")]
-        public Recipe Recipe { get; set; }
-        public long TagId { get; set; }
+        public virtual Recipe Recipe { get; set; }
+        public virtual long TagId { get; set; }
         [ForeignKey("TagId")]
-        public Tags Tag { get; set; }
+        public virtual Tags Tag { get; set; }
     }
 }

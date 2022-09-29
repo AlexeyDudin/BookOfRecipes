@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using WebAPI.Dto;
 using WebAPI.Dto.Recipes;
+using WebAPI.Dto.Response;
 using WebAPI.Services.Recipe;
 
 namespace WebAPI.Controllers
@@ -20,8 +23,16 @@ namespace WebAPI.Controllers
         [HttpPost, Route("")]
         public IActionResult AddRecipe([FromBody] RecipeDto recipeDto)
         {
+
             return GetResponse(_recipeApiService.AddRecipe(recipeDto));
         }
+
+        //[HttpPost, Route("")]
+        //public IActionResult AddRecipe([FromBody] object recipeDto)
+        //{
+        //    var recipeDto1 = JsonSerializer.Deserialize<RecipeDto>(recipeDto.ToString());
+        //    return GetResponse(new Result("", ResponseStatus.Ok));//_recipeApiService.AddRecipe(recipeDto));
+        //}
 
         [HttpGet, Route("user")]
         public IActionResult GetUserRecipes([FromQuery] UserDto user)

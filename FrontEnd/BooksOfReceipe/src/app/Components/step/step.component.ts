@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Recipe } from 'src/app/Entityes/Recipe';
-import { Step } from 'src/app/Entityes/Step';
+import { RecipeDto } from 'src/app/Entityes/Recipe';
 import { StepClass } from 'src/app/Entityes/StepClass';
 
 @Component({
@@ -10,8 +9,8 @@ import { StepClass } from 'src/app/Entityes/StepClass';
 })
 export class StepComponent implements OnInit {
 
-  @Input() step!: Step;
-  @Input() recipe!: Recipe;
+  @Input() step!: StepClass;
+  @Input() recipe!: RecipeDto;
 
   constructor() { 
    }
@@ -22,15 +21,15 @@ export class StepComponent implements OnInit {
   removeStep(): void {
     let newSteps: StepClass[] = [];
     let newCountSteps = 0;
-    for (let i = 0; i < this.recipe.step.length; i++)
+    for (let i = 0; i < this.recipe.Steps.length; i++)
     {
-      if (this.recipe.step[i] !== this.step)
+      if (this.recipe.Steps[i] !== this.step)
       {
         newCountSteps++;
-        this.recipe.step[i].count = i;
-        newSteps.push(this.recipe.step[i]);
+        this.recipe.Steps[i].Number = i;
+        newSteps.push(this.recipe.Steps[i]);
       }
     }
-    this.recipe.step = newSteps;
+    this.recipe.Steps = newSteps;
   }
 }

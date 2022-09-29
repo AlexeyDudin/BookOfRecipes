@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Recipe } from '../Entityes/Recipe';
+import { RecipeDto } from '../Entityes/Recipe';
 import { User } from '../Entityes/user';
 import { BaseService } from './base.service';
 import { StorageService } from './storage.service';
@@ -28,7 +28,10 @@ export class ResipeService {
     return this.baseService.sendGet('/api/recipe/all');
   }
 
-  saveRecipe(recipe: Recipe) {
-    return this.baseService.sendPostWithAuthHeader("/api/recipe", recipe, this.storage.getToken());
+  saveRecipe(recipe: RecipeDto) {
+    if (recipe.Id == 0)
+      return this.baseService.sendPostWithAuthHeader("/api/recipe", recipe, this.storage.getToken());
+    else
+      return this.baseService.sendPostWithAuthHeader("/api/recipe/update", recipe, this.storage.getToken());
   }
 }

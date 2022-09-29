@@ -17,7 +17,8 @@ namespace WebAPI.Converters
             recipe.Steps = recipeDto.Steps.ConvertStepListFromDto();
             recipe.Owner = recipeDto.Owner.ConverUserFromDto();
             recipe.Ingridients = recipeDto.Ingridients.ConvertIngridientListFromDto();
-
+            recipe.Likes = recipeDto.LikeCount.ConvertLikesFromDto();
+            recipe.Photo = recipeDto.RecipePhoto.ConvertRecipeFromDto();
             return recipe;
         }
 
@@ -33,7 +34,8 @@ namespace WebAPI.Converters
             recipeDto.Steps = recipe.Steps.ConvertStepListToDto();
             recipeDto.Owner = recipe.Owner.ConvertUserToDto();
             recipeDto.Ingridients = recipe.Ingridients.ConvertIngridientListToDto();
-
+            recipeDto.LikeCount = recipe.Likes.ConvertLikesToDto();
+            recipeDto.RecipePhoto = recipe.Photo.ConvertRecipeToDto();
             return recipeDto;
         }
     }

@@ -2,8 +2,8 @@
 {
     public class ReceipePhoto
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Url { get; set; }
+        public virtual long Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Url { get; set; }
     }
 }

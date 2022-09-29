@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from 'src/app/Entityes/Recipe';
+import { RecipeDto } from 'src/app/Entityes/Recipe';
 import { User } from 'src/app/Entityes/user';
 import { ResipeService } from 'src/app/Services/resipe.service';
 
@@ -12,7 +12,7 @@ export class TopReceipeComponent implements OnInit {
 
   constructor(private recipeService: ResipeService) { }
   
-  topRecipe: Recipe | null = null; 
+  topRecipe: RecipeDto | null = null; 
   // {
   //   id: 0,
   //   owner: new User(),

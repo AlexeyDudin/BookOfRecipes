@@ -1,8 +1,8 @@
 <div class="step">
     <img class="remove_step__button" src="./assets/images/CloseCross.svg" (click)="removeStep()"/>
-    <div class="step__count__font">Шаг {{step.count}}</div>
+    <div class="step__count__font">Шаг {{step.Number}}</div>
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Описание шага</mat-label>
-        <input matInput #message maxlength="256" placeholder="Например: Клубничная панна-кота">
+        <input matInput #message maxlength="256"  name="description" [(ngModel)]="step.Description" placeholder="Например: Клубничная панна-кота">
     </mat-form-field>
 </div>

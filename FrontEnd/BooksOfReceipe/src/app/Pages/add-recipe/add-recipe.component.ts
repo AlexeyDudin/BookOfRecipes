@@ -5,7 +5,7 @@ import { FloatLabelType } from '@angular/material/form-field';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { UcLoginComponent } from 'src/app/Components/dialog-forms/uclogin/uclogin.component';
 import { IngridientClass } from 'src/app/Entityes/IngridientClass';
-import { Recipe } from 'src/app/Entityes/Recipe';
+import { RecipeDto } from 'src/app/Entityes/Recipe';
 import { RecipePhoto } from 'src/app/Entityes/RecipePhoto';
 import { StepClass } from 'src/app/Entityes/StepClass';
 import { ResipeService } from 'src/app/Services/resipe.service';
@@ -23,7 +23,7 @@ export class AddRecipeComponent implements OnInit {
 
   uploadImagePath = "./assets/images/Upload.svg";
 
-  recipe: Recipe = new Recipe();
+  recipe: RecipeDto = new RecipeDto();
 
   constructor(private route: ActivatedRoute, private router: Router, private recipeService: ResipeService, public storage: StorageService, private dialog: MatDialog) { }
 
@@ -47,14 +47,15 @@ export class AddRecipeComponent implements OnInit {
   initialize(): void {
     let currentIdStr = this.route.snapshot.paramMap.get('id')?.toString();
     if (currentIdStr !== null && currentIdStr !== undefined) {
-      this.recipe.id = Number.parseInt(currentIdStr);
-      this.recipeService.getRecipeById(this.recipe.id).subscribe(res => {
+      this.recipe.Id = Number.parseInt(currentIdStr);
+      this.recipeService.getRecipeById(this.recipe.Id).subscribe(res => {
         if (res.code == 0)
           this.recipe = JSON.parse(res.content);
       });
     }
-    this.recipe.imagePath = new RecipePhoto();
-    this.recipe.imagePath.url = "./assets/images/ReceipeOfDay.png";
+    this.recipe.Owner = this.storage.getUserFromStorage();
+    this.recipe.RecipePhoto = new RecipePhoto();
+    this.recipe.RecipePhoto.Url = "./assets/images/ReceipeOfDay.png";
   }
 
   getFloatLabelValue(): FloatLabelType {
@@ -62,15 +63,15 @@ export class AddRecipeComponent implements OnInit {
   }
 
   addIngridient():void {
-    this.recipe.ingridients.push(new IngridientClass());
+    this.recipe.Ingridients.push(new IngridientClass());
   }
 
   removeIngridient():void {
-    this.recipe.ingridients.pop();
+    this.recipe.Ingridients.pop();
   }
 
   addStep():void {
-    this.recipe.step.push(new StepClass(this.recipe.step.length + 1));
+    this.recipe.Steps.push(new StepClass(this.recipe.Steps.length + 1));
   }
 
   saveReceipe(): void {

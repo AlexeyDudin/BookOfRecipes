@@ -1,8 +1,8 @@
 export class StepClass {
-    count: number = 0;
-    description: string = "";
+    Number: number = 0;
+    Description: string = "";
 
     constructor(count: number) {
-      this.count = count;
+      this.Number = count;
     }
   }

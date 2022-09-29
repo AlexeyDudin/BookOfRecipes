@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from 'src/app/Entityes/Recipe';
+import { RecipeDto } from 'src/app/Entityes/Recipe';
 import { User } from 'src/app/Entityes/user';
 import { ResipeService } from 'src/app/Services/resipe.service';
 
@@ -18,7 +18,7 @@ export class RecipesComponent implements OnInit {
     private recipeService: ResipeService
   ) {}
 
-  @Input() recipes: Recipe[] = [];
+  @Input() recipes: RecipeDto[] = [];
   // [
   //   {
   //     id: 1,
