@@ -1,4 +1,5 @@
 ﻿using Application.Recipes.Exceptions;
+using Application.Users.Exceptions;
 using Domain.Foundation;
 using Domain.Models.Recipes;
 using Domain.Models.Users;
@@ -14,9 +15,19 @@ namespace Application.Recipes
             _unitOfWork = repository;
         }
 
+        private Recipe ChangeRecipeOwner(Recipe recipe)
+        {
+            Recipe changedUserRecipe = recipe;
+            changedUserRecipe.Owner = _unitOfWork.UserRepository.FirstOrDefault(user => user.Login == recipe.Owner.Login);
+            if (changedUserRecipe.Owner == null)
+                throw new UserAuthException(recipe.Owner.Login, "");
+            changedUserRecipe.OwnerId = changedUserRecipe.Owner.Id;
+            return changedUserRecipe;
+        }
+
         public Recipe Add(Recipe recipe)
         {
-            _unitOfWork.RecipeRepository.Add(recipe);
+            _unitOfWork.RecipeRepository.Add(ChangeRecipeOwner(recipe));
             _unitOfWork.Commit();
             return recipe;
         }
@@ -61,7 +72,8 @@ namespace Application.Recipes
 
         public Recipe GetTopRecipe()
         {
-            return _unitOfWork.RecipeRepository.GetQuery().OrderByDescending(r => r.Likes.Result).FirstOrDefault();
+            Recipe result = _unitOfWork.RecipeRepository.GetQuery().OrderByDescending(r => r.Likes.Result).FirstOrDefault();
+            return result;
         }
     }
 }

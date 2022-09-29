@@ -1,4 +1,4 @@
 export class RecipePhoto {
-    name: string = "";
-    url: string = "";
+    Name: string = "";
+    Url: string = "";
 }
