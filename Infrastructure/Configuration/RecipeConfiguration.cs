@@ -15,7 +15,6 @@ namespace Infrastructure.Configuration
                 .HasOne(r => r.Owner)
                 .WithMany(u => u.Recipes)
                 .HasForeignKey(r => r.OwnerId);
-
         }
     }
 }

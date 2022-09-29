@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dto;
 using WebAPI.Services.User;
@@ -16,6 +17,7 @@ namespace WebAPI.Controllers
             _userApiService = userApiService;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Authenticate([FromBody] UserDto userLoginDto)
         {

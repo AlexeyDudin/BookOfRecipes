@@ -1,6 +1,8 @@
 ﻿using Domain.Foundation;
+using Domain.Models.Recipes;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Infrastructure.Foundation
 {
@@ -35,13 +37,37 @@ namespace Infrastructure.Foundation
             var entities = Entities.ToList();
             return entities;
         }
-        public List<T> Where(Expression<Func<T, bool>> predicate)
+        public List<T> GetAll(Expression<Func<T, object>>[] includePredicats)
+        {
+            var ChangedEntityes = Entities.AsQueryable();
+            foreach (var item in includePredicats)
+            {
+                ChangedEntityes = ChangedEntityes.Include(item);
+            }
+            return ChangedEntityes.ToList();
+        }
+        public List<T> Where(Expression<Func<T, bool>> predicate )
         {
             return predicate != null ? Entities.Where(predicate).ToList() : new List<T>();
         }
-        public IQueryable<T> GetQuery()
+        public IQueryable<T> GetQuery(Expression<Func<T, object>>[] includePredicats)
         {
-            return Entities.AsQueryable();
+            var query = Entities.AsQueryable();
+            foreach (var item in includePredicats)
+            {
+                query = query.Include(item);
+            }
+            return query;
+        }
+
+        public List<T> Where(Expression<Func<T, bool>> predicate, Expression<Func<T, bool>>[] includePredicats)
+        {
+            var query = Entities.AsQueryable();
+            foreach (var item in includePredicats)
+            {
+                query = query.Include(item);
+            }
+            return predicate != null ? query.Where(predicate).ToList() : new List<T>();
         }
     }
 }

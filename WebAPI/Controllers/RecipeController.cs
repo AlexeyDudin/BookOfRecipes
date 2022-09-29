@@ -27,13 +27,6 @@ namespace WebAPI.Controllers
             return GetResponse(_recipeApiService.AddRecipe(recipeDto));
         }
 
-        //[HttpPost, Route("")]
-        //public IActionResult AddRecipe([FromBody] object recipeDto)
-        //{
-        //    var recipeDto1 = JsonSerializer.Deserialize<RecipeDto>(recipeDto.ToString());
-        //    return GetResponse(new Result("", ResponseStatus.Ok));//_recipeApiService.AddRecipe(recipeDto));
-        //}
-
         [HttpGet, Route("user")]
         public IActionResult GetUserRecipes([FromQuery] UserDto user)
         {

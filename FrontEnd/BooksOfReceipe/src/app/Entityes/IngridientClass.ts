@@ -1,4 +1,4 @@
 export class IngridientClass {
-    Name: string = "";
-    Products: string = "";
+    name: string = "";
+    products: string = "";
 }

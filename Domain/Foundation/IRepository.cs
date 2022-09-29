@@ -9,8 +9,10 @@ namespace Domain.Foundation
         void Add(T entity);
         void Delete(T entity);
         List<T> Where(Expression<Func<T, bool>> predicate);
+        List<T> Where(Expression<Func<T, bool>> predicate, Expression<Func<T, bool>>[] includePredicats);
         List<T> GetAll();
-        IQueryable<T> GetQuery();
+        List<T> GetAll(Expression<Func<T, object>>[] includePredicats);
+        IQueryable<T> GetQuery(Expression<Func<T, object>>[] includePredicats);
 
     }
 }

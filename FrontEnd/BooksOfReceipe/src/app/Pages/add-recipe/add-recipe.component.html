@@ -20,11 +20,11 @@
             <div class="main_tab__text">
                 <mat-form-field floatLabel="never" appearance="outline" class="form_field__full_width">
                     <mat-label>Название рецепта</mat-label>
-                    <input matInput #message maxlength="256" name="name" [(ngModel)]="this.recipe.Title" placeholder="Например: Клубничная панна-кота">
+                    <input matInput #message maxlength="256" name="name" [(ngModel)]="this.recipe.title" placeholder="Например: Клубничная панна-кота">
                 </mat-form-field>
                 <mat-form-field floatLabel="never" appearance="outline" class="form_field__full_width">
                     <mat-label>Краткое описание рецепта (150 символов)</mat-label>
-                    <textarea matInput #message maxlength="150" name="description" [(ngModel)]="this.recipe.DescrptionText" placeholder="Например: Клубничная панна-кота"></textarea>
+                    <textarea matInput #message maxlength="150" name="description" [(ngModel)]="this.recipe.descrptionText" placeholder="Например: Клубничная панна-кота"></textarea>
                 </mat-form-field>
                 <mat-form-field appearance="outline" floatLabel="never" class="form_field__full_width">
                     <mat-label>Добавить теги</mat-label>
@@ -36,7 +36,7 @@
                             [hideRequiredMarker]="hideRequiredControl.value"
                             [floatLabel]="getFloatLabelValue()">
                             <mat-label>Время готовки</mat-label>
-                            <mat-select required name="time" [(ngModel)]="this.recipe.TimeRemaining">
+                            <mat-select required name="time" [(ngModel)]="this.recipe.timeRemaining">
                                 <mat-option value=10>10</mat-option>
                                 <mat-option value=15>15</mat-option>
                                 <mat-option value=30>30</mat-option>
@@ -76,14 +76,14 @@
                 <div class="exit_button">
                     <img class="remove_last_ingridient__button" src="./assets/images/CloseCross.svg" (click)="removeIngridient()"/>
                 </div>
-                <app-ingridient *ngFor="let ingridient of this.recipe.Ingridients" [ingridient]="this.ingridient"></app-ingridient>
+                <app-ingridient *ngFor="let ingridient of this.recipe.ingridients" [ingridient]="this.ingridient"></app-ingridient>
                 <button class="add__button" (click)="addIngridient()">
                     <div class="add__button__plus">+</div>
                     <div class="add__button__text">Добавить заголовок</div>
                 </button>
             </div>
             <div class="info_tab__steps">
-                <app-step *ngFor="let stepOfRecipe of this.recipe.Steps" [step]="stepOfRecipe" [recipe]="this.recipe" class="info_tab__step">
+                <app-step *ngFor="let stepOfRecipe of this.recipe.steps" [step]="stepOfRecipe" [recipe]="this.recipe" class="info_tab__step">
                 </app-step>
                 <button class="add__button" (click)="addStep()">
                     <div class="add__button__plus">+</div>

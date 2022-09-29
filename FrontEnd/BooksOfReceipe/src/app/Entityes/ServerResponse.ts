@@ -1,6 +1,6 @@
 import { User } from "./user";
 
 export class ServerResponse {
-    content!: string ;
+    content!: any ;
     code: number = -1;
 }

@@ -29,7 +29,7 @@ export class ResipeService {
   }
 
   saveRecipe(recipe: RecipeDto) {
-    if (recipe.Id == 0)
+    if (recipe.id == 0)
       return this.baseService.sendPostWithAuthHeader("/api/recipe", recipe, this.storage.getToken());
     else
       return this.baseService.sendPostWithAuthHeader("/api/recipe/update", recipe, this.storage.getToken());
