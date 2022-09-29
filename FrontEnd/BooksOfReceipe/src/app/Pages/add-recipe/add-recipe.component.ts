@@ -28,6 +28,7 @@ export class AddRecipeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private recipeService: ResipeService, public storage: StorageService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.checkOnUserLogin();
     this.initialize();
   }
 
@@ -47,15 +48,15 @@ export class AddRecipeComponent implements OnInit {
   initialize(): void {
     let currentIdStr = this.route.snapshot.paramMap.get('id')?.toString();
     if (currentIdStr !== null && currentIdStr !== undefined) {
-      this.recipe.Id = Number.parseInt(currentIdStr);
-      this.recipeService.getRecipeById(this.recipe.Id).subscribe(res => {
+      this.recipe.id = Number.parseInt(currentIdStr);
+      this.recipeService.getRecipeById(this.recipe.id).subscribe(res => {
         if (res.code == 0)
-          this.recipe = JSON.parse(res.content);
+          this.recipe = res.content;
       });
     }
-    this.recipe.Owner = this.storage.getUserFromStorage();
-    this.recipe.RecipePhoto = new RecipePhoto();
-    this.recipe.RecipePhoto.Url = "./assets/images/ReceipeOfDay.png";
+    this.recipe.owner = this.storage.getUserFromStorage();
+    this.recipe.recipePhoto = new RecipePhoto();
+    this.recipe.recipePhoto.url = "./assets/images/ReceipeOfDay.png";
   }
 
   getFloatLabelValue(): FloatLabelType {
@@ -63,15 +64,15 @@ export class AddRecipeComponent implements OnInit {
   }
 
   addIngridient():void {
-    this.recipe.Ingridients.push(new IngridientClass());
+    this.recipe.ingridients.push(new IngridientClass());
   }
 
   removeIngridient():void {
-    this.recipe.Ingridients.pop();
+    this.recipe.ingridients.pop();
   }
 
   addStep():void {
-    this.recipe.Steps.push(new StepClass(this.recipe.Steps.length + 1));
+    this.recipe.steps.push(new StepClass(this.recipe.steps.length + 1));
   }
 
   saveReceipe(): void {

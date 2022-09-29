@@ -10,6 +10,6 @@
         <div class="receipes__search__text">Поиск рецепта</div>
         <app-search style="width: 100%; margin-top: -157px;" [isShowHeaderText]="false"></app-search>
     </div>
-    <app-expanded-smart-info-card *ngFor="let recipe of recipes" [recipe]="recipe" (click)="ViewRecipe(recipe.Id)" style="width: 100%;"></app-expanded-smart-info-card>
+    <app-expanded-smart-info-card *ngFor="let recipe of recipes" [recipe]="recipe" (click)="ViewRecipe(recipe.id)" style="width: 100%;"></app-expanded-smart-info-card>
     <button class="recipe__load">Загрузить еще</button>
 </div>

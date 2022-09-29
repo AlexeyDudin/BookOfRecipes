@@ -26,7 +26,7 @@ namespace WebAPI.Converters
         {
             RecipeDto recipeDto = new RecipeDto();
             recipeDto.Id = recipe.Id;
-            recipeDto.Title = recipeDto.Title;
+            recipeDto.Title = recipe.Title;
             recipeDto.CountPersons = recipe.CountPersons;
             recipeDto.TimeRemaining = recipe.TimeRemaining;
             recipeDto.DescriptionText = recipe.DescriptionText;

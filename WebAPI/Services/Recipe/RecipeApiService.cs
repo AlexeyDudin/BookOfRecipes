@@ -4,6 +4,8 @@ using WebAPI.Dto.Response;
 using Application.Recipes;
 using WebAPI.Converters;
 using Application.Recipes.Exceptions;
+using Domain.Models.Recipes;
+using Domain.Models.Users;
 
 namespace WebAPI.Services.Recipe
 {
@@ -44,7 +46,12 @@ namespace WebAPI.Services.Recipe
         {
             try
             {
-                return new Result(_recipeService.GetAllRecipes(), ResponseStatus.Ok);
+                List<RecipeDto> result = new List<RecipeDto>();
+                foreach (Domain.Models.Recipes.Recipe recipe in _recipeService.GetAllRecipes())
+                {
+                    result.Add(recipe.ConvertRecipeToDto());
+                }
+                return new Result(result, ResponseStatus.Ok);
             }
             catch (Exception ex)
             {
@@ -56,7 +63,12 @@ namespace WebAPI.Services.Recipe
         {
             try
             {
-                return new Result(_recipeService.GetAllRecipesOfUser(user.ConverUserFromDto()), ResponseStatus.Ok);
+                List<RecipeDto> result = new List<RecipeDto>();
+                foreach (Domain.Models.Recipes.Recipe recipe in _recipeService.GetAllRecipesOfUser(user.ConverUserFromDto()))
+                {
+                    result.Add(recipe.ConvertRecipeToDto());
+                }
+                return new Result(result, ResponseStatus.Ok);
             }
             catch (Exception ex)
             {
@@ -68,7 +80,12 @@ namespace WebAPI.Services.Recipe
         {
             try
             {
-                return new Result(_recipeService.GetByContainigName(name), ResponseStatus.Ok);
+                List<RecipeDto> result = new List<RecipeDto>();
+                foreach (Domain.Models.Recipes.Recipe recipe in _recipeService.GetByContainigName(name))
+                {
+                    result.Add(recipe.ConvertRecipeToDto());
+                }
+                return new Result(result, ResponseStatus.Ok);
             }
             catch (Exception ex)
             {
@@ -80,7 +97,7 @@ namespace WebAPI.Services.Recipe
         {
             try
             {
-                return new Result(_recipeService.GetTopRecipe(), ResponseStatus.Ok);
+                return new Result(_recipeService.GetTopRecipe().ConvertRecipeToDto(), ResponseStatus.Ok);
             }
             catch (Exception ex)
             {
@@ -92,7 +109,7 @@ namespace WebAPI.Services.Recipe
         {
             try
             {
-                return new Result(_recipeService.GetRecypeById(id), ResponseStatus.Ok);
+                return new Result(_recipeService.GetRecypeById(id).ConvertRecipeToDto(), ResponseStatus.Ok);
             }
             catch (RecipeNotFoundException ex)
             {

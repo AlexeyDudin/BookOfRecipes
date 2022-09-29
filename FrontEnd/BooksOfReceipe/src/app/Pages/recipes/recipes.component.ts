@@ -66,7 +66,7 @@ export class RecipesComponent implements OnInit {
     this.recipeService.getRecipes().subscribe(res => 
       {
         if (res.code === 0)
-          this.recipes = JSON.parse(res.content);
+          this.recipes = res.content;
       });
   }
 

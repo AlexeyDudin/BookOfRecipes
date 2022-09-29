@@ -1,40 +1,40 @@
 <div class="recipe recipe__position recipe__margins">
     <div class="recipe__image">
-        <img [src]="recipe.imagePath.url" class="recipe__image__size"/>
+        <img [src]="this.recipe?.recipePhoto?.url" class="recipe__image__size"/>
     </div>
     <div class="space_between_flex"></div>
     <div class="recipe__text_info">
         <div class="text_info__info">
             <div class="info__tags">
-                <div class="tags__tag" *ngFor="let tag of recipe.tags">
+                <div class="tags__tag" *ngFor="let tag of this.recipe?.tags">
                     <div class="tag__text_style">{{tag.text}}
                     </div>
                 </div>
             </div>
             <div class="info__stars">
                 <div class="info__stars__star_frame"></div>
-                <div class="info__start__count">{{recipe.likeCount}}</div>
+                <div class="info__start__count">{{this.recipe?.likeCount}}</div>
             </div>
             <div class="info__likes">
                 <div class="info__likes__frame"></div>
-                <div class="info__likes__count">{{recipe.likeCount}}</div>
+                <div class="info__likes__count">{{this.recipe?.likeCount}}</div>
             </div>
         </div>
-        <div class="text_info__header">{{recipe.title}}</div>
-        <div class="text_info__description">{{recipe.text}}</div>
+        <div class="text_info__header">{{this.recipe?.title}}</div>
+        <div class="text_info__description">{{this.recipe?.descrptionText}}</div>
         <div class="text_info__time_and_persons">
             <div class="time_and_persons__time">
                 <div class="time__image"></div>
                 <div class="time__info">
                     <div class="info__text_style">Время приготовления:</div>
-                    <div class="info__time_style">{{recipe.timer}} минут</div>
+                    <div class="info__time_style">{{this.recipe?.timeRemaining}} минут</div>
                 </div>
             </div>
             <div class="time_and_persons__persons">
                 <div class="person__image"></div>
                 <div class="person__info">
                     <div class="info__text_style">Рецепт на:</div>
-                    <div class="info__person_style">{{recipe.persons}} персон</div>
+                    <div class="info__person_style">{{this.recipe?.countPersons}} персон</div>
                 </div>
             </div>
             <div></div>

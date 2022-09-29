@@ -7,7 +7,7 @@ namespace WebAPI.Controllers
     {
         protected IActionResult GetResponse(Result response)
         {
-            return response.Status switch
+            return response.Code switch
             {
                 ResponseStatus.Ok => Ok( response ),
                 ResponseStatus.Error => BadRequest( response ),

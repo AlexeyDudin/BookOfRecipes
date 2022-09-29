@@ -3,6 +3,7 @@ using Application.Users.Exceptions;
 using Domain.Foundation;
 using Domain.Models.Recipes;
 using Domain.Models.Users;
+using System.Linq.Expressions;
 
 namespace Application.Recipes
 {
@@ -49,7 +50,8 @@ namespace Application.Recipes
 
         public List<Recipe> GetAllRecipes()
         {
-            return _unitOfWork.RecipeRepository.GetAll();
+            var includePredicates = new Expression<Func<Recipe, object>>[] { (Recipe r) => r.Likes, (Recipe r) => r.Ingridients, (Recipe r) => r.Photo, (Recipe r) => r.Owner, (Recipe r) => r.Steps, (Recipe r) => r.RecipeTags };
+            return _unitOfWork.RecipeRepository.GetAll(includePredicates);
         }
 
         public List<Recipe> GetAllRecipesOfUser(User user)
@@ -72,7 +74,10 @@ namespace Application.Recipes
 
         public Recipe GetTopRecipe()
         {
-            Recipe result = _unitOfWork.RecipeRepository.GetQuery().OrderByDescending(r => r.Likes.Result).FirstOrDefault();
+            var includePredicates = new Expression<Func<Recipe, object>>[] { (Recipe r) => r.Likes, (Recipe r) => r.Ingridients, (Recipe r) => r.Photo, (Recipe r) => r.Owner, (Recipe r) => r.Steps, (Recipe r) => r.RecipeTags};
+            Recipe result = _unitOfWork.RecipeRepository
+                .GetQuery(includePredicates)
+                .OrderByDescending(r => r.Likes.Result).FirstOrDefault();
             return result;
         }
     }

@@ -5,15 +5,15 @@ import { User } from "./user";
 import { RecipePhoto } from "./RecipePhoto";
 
 export class RecipeDto {
-    Id: number = 0;
-    Title: string = "";
-    Owner!: User | null;
-    DescrptionText: string = "";
-    Tags: TagClass [] = [];
-    TimeRemaining: number = 0;
-    CountPersons: number = 0;
-    Ingridients: IngridientDto[] = [{Name: "", Products: ""}];
-    Steps: StepDto[] = [{ Number: 1, Description: ""}];
-    LikeCount: number = 0;
-    RecipePhoto!: RecipePhoto;
+    id: number = 0;
+    title: string = "";
+    owner!: User | null;
+    descrptionText: string = "";
+    tags: TagClass [] = [];
+    timeRemaining: number = 0;
+    countPersons: number = 0;
+    ingridients: IngridientDto[] = [{name: "", products: ""}];
+    steps: StepDto[] = [{ number: 1, description: ""}];
+    likeCount: number = 0;
+    recipePhoto!: RecipePhoto;
     }

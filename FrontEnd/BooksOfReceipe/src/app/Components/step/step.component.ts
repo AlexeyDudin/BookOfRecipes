@@ -21,15 +21,15 @@ export class StepComponent implements OnInit {
   removeStep(): void {
     let newSteps: StepClass[] = [];
     let newCountSteps = 0;
-    for (let i = 0; i < this.recipe.Steps.length; i++)
+    for (let i = 0; i < this.recipe.steps.length; i++)
     {
-      if (this.recipe.Steps[i] !== this.step)
+      if (this.recipe.steps[i] !== this.step)
       {
         newCountSteps++;
-        this.recipe.Steps[i].Number = i;
-        newSteps.push(this.recipe.Steps[i]);
+        this.recipe.steps[i].number = i;
+        newSteps.push(this.recipe.steps[i]);
       }
     }
-    this.recipe.Steps = newSteps;
+    this.recipe.steps = newSteps;
   }
 }

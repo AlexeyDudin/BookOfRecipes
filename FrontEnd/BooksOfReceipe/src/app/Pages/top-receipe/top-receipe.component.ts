@@ -42,7 +42,7 @@ export class TopReceipeComponent implements OnInit {
     this.recipeService.getTopRecipe().subscribe(result => 
       {
         if (result.content !== null)
-          this.topRecipe = JSON.parse(result.content)
+          this.topRecipe = result.content
       });
   }
 
